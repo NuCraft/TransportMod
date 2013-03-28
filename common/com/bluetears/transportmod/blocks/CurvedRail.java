@@ -7,10 +7,17 @@ import net.minecraft.creativetab.CreativeTabs;
 
 public class CurvedRail extends Block {
 
-        public CurvedRail (int id, int texture, Material material) {
+        public CurvedRail (int id, Material material) {
                 super(id, material);
                 setCreativeTab(CreativeTabs.tabBlock);
         }
        //ioaujwebgfviu
    
-}
+        public void registerIcons(IconRegister par1IconRegister)
+        {
+                 this.blockIcon = par1IconRegister.registerIcon("transportmod:curvedrail");
+        }
+
+        
+    }    
+        

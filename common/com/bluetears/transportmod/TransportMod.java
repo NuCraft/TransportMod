@@ -36,7 +36,7 @@ public class TransportMod {
         public static TransportMod instance;
         
         //Below is the code for generating all of the blocks
-        public final static Block curvedRail = new CurvedRail(500, 5003, Material.ground)
+        public final static Block curvedRail = new CurvedRail(500, Material.ground)
         .setStepSound(Block.soundGravelFootstep)
         .setUnlocalizedName("curvedRail").setHardness(0.5F);
         
@@ -61,6 +61,7 @@ public class TransportMod {
         	
         	addNames();
         	addCrafting();
+        	addBlocks();
 
             
                 proxy.registerRenderers();
@@ -71,6 +72,10 @@ public class TransportMod {
         public void postInit(FMLPostInitializationEvent event) {
                 // Stub Method
         }
+		
+		public static void addBlocks(){
+			GameRegistry.registerBlock(curvedRail, "curvedRail");
+		}
         
         
         public static void addNames(){
