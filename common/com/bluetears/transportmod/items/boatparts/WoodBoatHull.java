@@ -17,7 +17,7 @@ public WoodBoatHull(int id)
 @Override
 public void updateIcons(IconRegister iconRegister)
 {
-         iconIndex = iconRegister.registerIcon("transportmod:simplecircuit");
+         iconIndex = iconRegister.registerIcon("transportmod:woodenboathull");
 }
 
 }

@@ -4,11 +4,11 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
-public class IronBoatHull extends Item
+public class SimplePropeller extends Item
 {
 
 
-public IronBoatHull(int id)
+public SimplePropeller(int id)
 {
          super(id);
          setCreativeTab(CreativeTabs.tabMisc);
@@ -17,7 +17,7 @@ public IronBoatHull(int id)
 @Override
 public void updateIcons(IconRegister iconRegister)
 {
-         iconIndex = iconRegister.registerIcon("transportmod:ironboathull");
+         iconIndex = iconRegister.registerIcon("transportmod:simplepropeller");
 }
 
 }
