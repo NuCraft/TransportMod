@@ -88,7 +88,7 @@ public class TransportMod {
         	
         }
         
-        private void addCrafting(){
+        public static void addCrafting(){
 
         	GameRegistry.addRecipe(new ItemStack(simplecircuit), "rqr", "ici","sss", 
         	        'r',Item.redstone, 'q',Item.field_94583_ca,'s',Block.stone,'i',Item.ingotIron,'c',new ItemStack(Item.dyePowder,1,2));
