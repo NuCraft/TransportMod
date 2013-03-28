@@ -6,6 +6,7 @@ import com.bluetears.transportmod.items.AdvancedCircuit;
 import com.bluetears.transportmod.items.SimpleCircuit;
 import com.bluetears.transportmod.items.SimpleCombustionEngine;
 import com.bluetears.transportmod.items.boatparts.Anchor;
+import com.bluetears.transportmod.items.boatparts.SimplePropeller;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -45,6 +46,7 @@ public class TransportMod {
         public final static Item simplecircuit = new SimpleCircuit(5002).setMaxStackSize(64).setUnlocalizedName("simpleCircuit");
         public final static Item simplecombustionengine = new SimpleCombustionEngine(5003).setMaxStackSize(64).setUnlocalizedName("simpleCombustionEngine");
         public final static Item anchor = new Anchor(5004).setMaxStackSize(64).setUnlocalizedName("anchor");
+        public final static Item simplepropeller = new SimplePropeller(5005).setMaxStackSize(64).setUnlocalizedName("propeller");
         
         // Says where the client and server 'proxy' code is loaded.
         @SidedProxy(clientSide="com.bluetears.transportmod.client.ClientProxy", serverSide="com.bluetears.transportmod.CommonProxy")
@@ -80,11 +82,13 @@ public class TransportMod {
         
         public static void addNames(){
         
+        	//Watch your language!
         	LanguageRegistry.addName(curvedRail, "ERMEHGERD");
         	LanguageRegistry.addName(advancedcircuit, "Advanced Circuit");
         	LanguageRegistry.addName(simplecircuit, "Simple Circuit");
         	LanguageRegistry.addName(simplecombustionengine, "Simple Combustion Engine");
         	LanguageRegistry.addName(anchor, "Anchor");
+        	LanguageRegistry.addName(simplepropeller, "Simple Propeller");
         	
         }
         
