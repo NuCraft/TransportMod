@@ -1,6 +1,7 @@
 package com.bluetears.transportmod;
 
 
+import com.bluetears.transportmod.blocks.CurvedRail;
 import com.bluetears.transportmod.items.AdvancedCircuit;
 import com.bluetears.transportmod.items.SimpleCircuit;
 import com.bluetears.transportmod.items.SimpleCombustionEngine;
@@ -35,7 +36,9 @@ public class TransportMod {
         public static TransportMod instance;
         
         //Below is the code for generating all of the blocks
-        
+        public final static Block curvedRail = new CurvedRail(500, 5003, Material.ground)
+        .setStepSound(Block.soundGravelFootstep)
+        .setUnlocalizedName("curvedRail").setHardness(0.5F);
         
         //Below is the code for generating all of the items
         public final static Item advancedcircuit = new AdvancedCircuit(5001).setMaxStackSize(64).setUnlocalizedName("advancedCircuit");
@@ -72,6 +75,7 @@ public class TransportMod {
         
         public static void addNames(){
         
+        	LanguageRegistry.addName(curvedRail, "ERMEHGERD");
         	LanguageRegistry.addName(advancedcircuit, "Advanced Circuit");
         	LanguageRegistry.addName(simplecircuit, "Simple Circuit");
         	LanguageRegistry.addName(simplecombustionengine, "Simple Combustion Engine");
