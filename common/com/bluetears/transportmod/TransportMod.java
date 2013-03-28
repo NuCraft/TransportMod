@@ -3,6 +3,7 @@ package com.bluetears.transportmod;
 
 import com.bluetears.transportmod.items.AdvancedCircuit;
 import com.bluetears.transportmod.items.SimpleCircuit;
+import com.bluetears.transportmod.items.SimpleCombustionEngine;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -37,7 +38,8 @@ public class TransportMod {
         
         //Below is the code for generating all of the items
         public final static Item advancedcircuit = new AdvancedCircuit(5001).setMaxStackSize(64).setUnlocalizedName("advancedCircuit");
-        public final static Item simplecircuit = new SimpleCircuit(5002).setMaxStackSize(64).setUnlocalizedName("simpleCircuit1");
+        public final static Item simplecircuit = new SimpleCircuit(5002).setMaxStackSize(64).setUnlocalizedName("simpleCircuit");
+        public final static Item simplecombustionengine = new SimpleCombustionEngine(5002).setMaxStackSize(64).setUnlocalizedName("simpleCombustionEngine");
         
         // Says where the client and server 'proxy' code is loaded.
         @SidedProxy(clientSide="com.bluetears.transportmod.client.ClientProxy", serverSide="com.bluetears.transportmod.CommonProxy")
@@ -70,6 +72,7 @@ public class TransportMod {
         
         	LanguageRegistry.addName(advancedcircuit, "Advanced Circuit");
         	LanguageRegistry.addName(simplecircuit, "Simple Circuit");
+        	LanguageRegistry.addName(simplecombustionengine, "Simple Combustion Engine");
         	
         }
         
