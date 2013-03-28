@@ -98,6 +98,7 @@ public class TransportMod {
         	        'i',Item.ingotIron,'p',Block.pistonBase);
         	GameRegistry.addRecipe(new ItemStack(Item.boat),"i i","iii","bbb",'i',Item.ingotIron,'b',new ItemStack(Item.potion,0));
 			GameRegistry.addRecipe(new ItemStack(anchor)," i "," i ","iii",'i',Item.ingotIron);
+			GameRegistry.addRecipe(new ItemStack(anchor)," i "," i ","i i",'i',Item.ingotIron);
 		}
 }
 
