@@ -1,6 +1,9 @@
 package com.bluetears.transportmod;
 
 
+import com.bluetears.transportmod.items.AdvancedCircuit;
+import com.bluetears.transportmod.items.SimpleCircuit;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
@@ -33,7 +36,8 @@ public class TransportMod {
         
         
         //Below is the code for generating all of the items
-        
+        public final static Item advancedcircuit = new AdvancedCircuit(5001).setMaxStackSize(64);
+        public final static Item simplecircuit = new SimpleCircuit(5002).setMaxStackSize(64);
         
         // Says where the client and server 'proxy' code is loaded.
         @SidedProxy(clientSide="com.bluetears.transportmod.client.ClientProxy", serverSide="com.bluetears.transportmod.CommonProxy")
@@ -64,13 +68,16 @@ public class TransportMod {
         //Harro!
         
         public static void addNames(){
+        
+        	LanguageRegistry.addName(advancedcircuit, "Advanced Circuit");
+        	LanguageRegistry.addName(simplecircuit, "Simple Circuit");
         }
         
         private void addCrafting(){
 
-        	GameRegistry.addRecipe(new ItemStack(Block.commandBlock), "rqr", "ici","sss", 
+        	GameRegistry.addRecipe(new ItemStack(simplecircuit), "rqr", "ici","sss", 
         	        'r',Item.redstone, 'q',Item.field_94583_ca,'s',Block.stone,'i',Item.ingotIron,'c',new ItemStack(Item.dyePowder,1,2));
-        	GameRegistry.addRecipe(new ItemStack(Block.redstoneLampActive), "rqr", "gig","sss", 
+        	GameRegistry.addRecipe(new ItemStack(advancedcircuit), "rqr", "gig","sss", 
         	        'r',Item.redstone, 'q',Item.field_94583_ca,'s',Item.ingotIron,'g',Item.ingotGold,'i',new ItemStack(Item.dyePowder,1,0));
         	GameRegistry.addRecipe(new ItemStack(Block.anvil), "ipi", "i i","iii", 
         	        'i',Item.ingotIron,'p',Block.pistonBase);

@@ -4,11 +4,11 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
-public class SimpleCircuit extends Item
+public class AdvancedCircuit extends Item
 {
 
 
-public SimpleCircuit(int id)
+public AdvancedCircuit(int id)
 {
          super(id);
          setCreativeTab(CreativeTabs.tabMisc);
@@ -17,7 +17,7 @@ public SimpleCircuit(int id)
 @Override
 public void updateIcons(IconRegister iconRegister)
 {
-         iconIndex = iconRegister.registerIcon("transportmod:simplecircuit");
+         iconIndex = iconRegister.registerIcon("transportmod:advancedcircuit");
 }
 
 }
