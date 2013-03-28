@@ -2,9 +2,9 @@ package com.bluetears.transportmod;
 
 
 import com.bluetears.transportmod.items.AdvancedCircuit;
-import com.bluetears.transportmod.items.Anchor;
 import com.bluetears.transportmod.items.SimpleCircuit;
 import com.bluetears.transportmod.items.SimpleCombustionEngine;
+import com.bluetears.transportmod.items.boatparts.Anchor;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
