@@ -84,6 +84,7 @@ public class TransportMod {
         	        'r',Item.redstone, 'q',Item.field_94583_ca,'s',Item.ingotIron,'g',Item.ingotGold,'i',new ItemStack(Item.dyePowder,1,0));
         	GameRegistry.addRecipe(new ItemStack(simplecombustionengine), "ipi", "i i","iii", 
         	        'i',Item.ingotIron,'p',Block.pistonBase);
+        	GameRegistry.addRecipe(new ItemStack(Item.boat),"i i","iii","bbb",'i',Item.ingotIron,'b',new ItemStack(Item.glassBottle,1));
 			
 		}
 }
