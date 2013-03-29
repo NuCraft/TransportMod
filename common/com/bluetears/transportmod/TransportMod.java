@@ -96,6 +96,7 @@ public class TransportMod {
         
         public void load(FMLInitializationEvent event) {
         	
+        	addWorldGens();
         	addNames();
         	addCrafting();
         	addBlocks();
@@ -152,6 +153,10 @@ public class TransportMod {
         
         public static void addMinables(){
         	MinecraftForge.setBlockHarvestLevel(asphaltore, "pickaxe", 1);
+        }
+        
+        public static void addWorldGens(){
+        	GameRegistry.registerWorldGenerator(new TransportModWorldGenerator());
         }
         	
         }

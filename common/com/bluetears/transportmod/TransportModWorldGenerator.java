@@ -39,7 +39,7 @@ public class TransportModWorldGenerator implements IWorldGenerator{
         	int firstBlockYCoord = random.nextInt(64);
         	int firstBlockZCoord = chunkZ + random.nextInt(16);
         	
-        	(new WorldGenMinable(TransportMod.asphaltore.blockID, 3)).generate(world, random, firstBlockXCoord, firstBlockYCoord, firstBlockZCoord);
+        	(new WorldGenMinable(TransportMod.asphaltore.blockID, 8)).generate(world, random, firstBlockXCoord, firstBlockYCoord, firstBlockZCoord);
         }
 		
 		
