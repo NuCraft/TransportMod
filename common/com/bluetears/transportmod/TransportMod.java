@@ -3,9 +3,11 @@ package com.bluetears.transportmod;
 
 import com.bluetears.transportmod.blocks.CurvedRail;
 import com.bluetears.transportmod.items.AdvancedCircuit;
+import com.bluetears.transportmod.items.IronBoat;
 import com.bluetears.transportmod.items.SimpleCircuit;
 import com.bluetears.transportmod.items.SimpleCombustionEngine;
 import com.bluetears.transportmod.items.boatparts.Anchor;
+import com.bluetears.transportmod.items.boatparts.IronBoatHull;
 import com.bluetears.transportmod.items.boatparts.SimplePropeller;
 
 import net.minecraft.block.Block;
@@ -48,6 +50,8 @@ public class TransportMod {
         public final static Item simplecombustionengine = new SimpleCombustionEngine(5003).setMaxStackSize(64).setUnlocalizedName("simpleCombustionEngine");
         public final static Item anchor = new Anchor(5004).setMaxStackSize(64).setUnlocalizedName("anchor");
         public final static Item simplepropeller = new SimplePropeller(5005).setMaxStackSize(64).setUnlocalizedName("propeller");
+        public final static Item ironboathull = new IronBoatHull(5006).setMaxStackSize(64).setUnlocalizedName("ironboathull");
+        public final static Item ironboat = new IronBoat(5007).setUnlocalizedName("ironboat");
         
         // Says where the client and server 'proxy' code is loaded.
         @SidedProxy(clientSide="com.bluetears.transportmod.client.ClientProxy", serverSide="com.bluetears.transportmod.CommonProxy")
@@ -90,6 +94,8 @@ public class TransportMod {
         	LanguageRegistry.addName(simplecombustionengine, "Simple Combustion Engine");
         	LanguageRegistry.addName(anchor, "Anchor");
         	LanguageRegistry.addName(simplepropeller, "Simple Propeller");
+        	LanguageRegistry.addName(ironboathull, "Iron Boat Hull");
+        	LanguageRegistry.addName(ironboat, "Iron Boat");
         	
         }
         
@@ -101,7 +107,7 @@ public class TransportMod {
         	        'r',Item.redstone, 'q',Item.field_94583_ca,'s',Item.ingotIron,'g',Item.ingotGold,'i',new ItemStack(Item.dyePowder,1,0));
         	GameRegistry.addRecipe(new ItemStack(simplecombustionengine), "ipi", "i i","iii", 
         	        'i',Item.ingotIron,'p',Block.pistonBase);
-        	GameRegistry.addRecipe(new ItemStack(Item.boat),"i i","iii","bbb",'i',Item.ingotIron,'b',new ItemStack(Item.potion,0));
+        	GameRegistry.addRecipe(new ItemStack(ironboathull),"i i","iii","bbb",'i',Item.ingotIron,'b',new ItemStack(Item.potion,0));
 			GameRegistry.addRecipe(new ItemStack(anchor)," i "," i ","iii",'i',Item.ingotIron);
 			GameRegistry.addRecipe(new ItemStack(simplepropeller)," i "," i ","i i",'i',Item.ingotIron);
 		}
