@@ -3,6 +3,7 @@ package com.bluetears.transportmod;
 
 import com.bluetears.transportmod.blocks.CurvedRail;
 import com.bluetears.transportmod.items.AdvancedCircuit;
+import com.bluetears.transportmod.items.Asphalt;
 import com.bluetears.transportmod.items.IronBoat;
 import com.bluetears.transportmod.items.SimpleCircuit;
 import com.bluetears.transportmod.items.SimpleCombustionEngine;
@@ -48,6 +49,7 @@ public class TransportMod {
         public final static Item simplepropeller = new SimplePropeller(5005).setMaxStackSize(64).setUnlocalizedName("propeller");
         public final static Item ironboathull = new IronBoatHull(5006).setMaxStackSize(64).setUnlocalizedName("ironboathull");
         public final static Item ironboat = new IronBoat(5007).setUnlocalizedName("ironboat");
+        public final static Item asphalt = new Asphalt(5008).setUnlocalizedName("asphalt").setMaxStackSize(64);
         
         // Says where the client and server 'proxy' code is loaded.
         @SidedProxy(clientSide="com.bluetears.transportmod.client.ClientProxy", serverSide="com.bluetears.transportmod.CommonProxy")
@@ -92,6 +94,7 @@ public class TransportMod {
         	LanguageRegistry.addName(simplepropeller, "Simple Propeller");
         	LanguageRegistry.addName(ironboathull, "Iron Boat Hull");
         	LanguageRegistry.addName(ironboat, "Iron Boat");
+        	LanguageRegistry.addName(asphalt, "Asphalt");
         	
         }
         

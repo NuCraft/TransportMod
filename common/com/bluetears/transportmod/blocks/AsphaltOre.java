@@ -2,6 +2,8 @@ package com.bluetears.transportmod.blocks;
 
 import java.util.Random;
 
+import com.bluetears.transportmod.TransportMod;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
