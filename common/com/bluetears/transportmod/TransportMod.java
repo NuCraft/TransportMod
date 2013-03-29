@@ -83,6 +83,7 @@ public class TransportMod {
 		
 		public static void addBlocks(){
 			GameRegistry.registerBlock(curvedRail, "curvedRail");
+			GameRegistry.registerBlock(asphaltore, "asphaltore");
 		}
         
         
