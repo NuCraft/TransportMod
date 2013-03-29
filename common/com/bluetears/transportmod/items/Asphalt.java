@@ -12,6 +12,8 @@ public Asphalt(int id)
 {
          super(id);
          setCreativeTab(CreativeTabs.tabMisc);
+         setUnlocalizedName("asphalt");
+         setMaxStackSize(64);
 }
 
 @Override
