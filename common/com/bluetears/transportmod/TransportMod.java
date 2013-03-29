@@ -10,6 +10,7 @@ import com.bluetears.transportmod.items.boatparts.SimplePropeller;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -37,9 +38,9 @@ public class TransportMod {
         public static TransportMod instance;
         
         //Below is the code for generating all of the blocks
-        public final static Block curvedRail = new CurvedRail(500, Material.ground)
+        public final static Block curvedRail = new CurvedRail(500)
         .setStepSound(Block.soundGravelFootstep)
-        .setUnlocalizedName("curvedRail").setHardness(0.5F);
+        .setUnlocalizedName("curvedRail").setHardness(0.5F).setCreativeTab(CreativeTabs.tabTransport);;
         
         //Below is the code for generating all of the items
         public final static Item advancedcircuit = new AdvancedCircuit(5001).setMaxStackSize(64).setUnlocalizedName("advancedCircuit");
