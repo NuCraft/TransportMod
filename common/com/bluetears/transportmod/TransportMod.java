@@ -5,10 +5,10 @@ import com.bluetears.transportmod.blocks.AsphaltOre;
 import com.bluetears.transportmod.blocks.CurvedRail;
 import com.bluetears.transportmod.items.AdvancedCircuit;
 import com.bluetears.transportmod.items.Asphalt;
-import com.bluetears.transportmod.items.IronBoat;
 import com.bluetears.transportmod.items.SimpleCircuit;
 import com.bluetears.transportmod.items.SimpleCombustionEngine;
 import com.bluetears.transportmod.items.boatparts.Anchor;
+import com.bluetears.transportmod.items.boatparts.IronBoat;
 import com.bluetears.transportmod.items.boatparts.IronBoatHull;
 import com.bluetears.transportmod.items.boatparts.SimplePropeller;
 
@@ -17,6 +17,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -37,6 +38,34 @@ public class TransportMod {
         // The instance of your mod that Forge uses.
         @Instance("TransportMod")
         public static TransportMod instance;
+        
+        
+        //Calling of the 3 Creative Tabs and Config of them
+        public static CreativeTabs transportmodtab = new CreativeTabs("transportmodtab") {
+        	public ItemStack getIconItemStack() {
+                	return new ItemStack(Item.eyeOfEnder, 1, 0);
+        	}
+    	};
+        public static CreativeTabs monorailstab = new CreativeTabs("monorailstab") {
+            public ItemStack getIconItemStack() {
+                    return new ItemStack(Item.eyeOfEnder, 1, 0);
+            }
+        };
+        public static CreativeTabs boatstab = new CreativeTabs("boatstab") {
+        	public ItemStack getIconItemStack() {
+                	return new ItemStack(anchor);
+        	}
+    	};
+    	public static CreativeTabs trainstab = new CreativeTabs("trainstab") {
+            public ItemStack getIconItemStack() {
+                    return new ItemStack(Item.eyeOfEnder, 1, 0);
+            }
+        };
+        public static CreativeTabs roadstab = new CreativeTabs("roadstab") {
+        	public ItemStack getIconItemStack() {
+                	return new ItemStack(Item.eyeOfEnder, 1, 0);
+        	}
+    	};
         
         //Below is the code for generating all of the blocks
         public final static Block curvedRail = new CurvedRail(500)
@@ -100,6 +129,11 @@ public class TransportMod {
         	LanguageRegistry.addName(ironboat, "Iron Boat");
         	LanguageRegistry.addName(asphalt, "Asphalt");
         	LanguageRegistry.addName(asphaltore, "Asphalt Ore");
+        	LanguageRegistry.instance().addStringLocalization("itemGroup.monorailstab", "en_US", "Monorails");
+        	LanguageRegistry.instance().addStringLocalization("itemGroup.transportmodtab", "en_US", "Transport Mod");
+        	LanguageRegistry.instance().addStringLocalization("itemGroup.boatstab", "en_US", "Boats");
+        	LanguageRegistry.instance().addStringLocalization("itemGroup.trainstab", "en_US", "Trains");
+        	LanguageRegistry.instance().addStringLocalization("itemGroup.roadstab", "en_US", "Roads");
         	
         }
         
@@ -115,5 +149,11 @@ public class TransportMod {
 			GameRegistry.addRecipe(new ItemStack(anchor)," i "," i ","iii",'i',Item.ingotIron);
 			GameRegistry.addRecipe(new ItemStack(simplepropeller)," i "," i ","i i",'i',Item.ingotIron);
 		}
-}
+        
+        public static void addMinables(){
+        	MinecraftForge.setBlockHarvestLevel(asphaltore, "pickaxe", 1);
+        }
+        	
+        }
+
 
