@@ -1,17 +1,17 @@
 package com.bluetears.transportmod.blocks;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockRailBase;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 
-public class CurvedRail extends Block {
+public class CurvedRail extends BlockRailBase {
 
-        public CurvedRail (int id, Material material) {
-                super(id, material);
-                setCreativeTab(CreativeTabs.tabBlock);
+        public CurvedRail (int par1) {
+        	super(par1, false);
+                
         }
-       //ioaujwebgfviu
    
         public void registerIcons(IconRegister par1IconRegister)
         {
