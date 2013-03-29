@@ -11,8 +11,8 @@ import net.minecraft.creativetab.CreativeTabs;
 
 public class AsphaltOre extends Block {
 
-        public AsphaltOre (int id, Material material) {
-                super(id, material);
+        public AsphaltOre (int id, Material iron) {
+                super(id, iron);
                 setHardness(4.0F); // 33% harder than diamond
                 setStepSound(Block.soundStoneFootstep);
                 setCreativeTab(CreativeTabs.tabBlock);

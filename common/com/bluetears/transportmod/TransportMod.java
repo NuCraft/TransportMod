@@ -1,6 +1,7 @@
 package com.bluetears.transportmod;
 
 
+import com.bluetears.transportmod.blocks.AsphaltOre;
 import com.bluetears.transportmod.blocks.CurvedRail;
 import com.bluetears.transportmod.items.AdvancedCircuit;
 import com.bluetears.transportmod.items.Asphalt;
@@ -12,6 +13,7 @@ import com.bluetears.transportmod.items.boatparts.IronBoatHull;
 import com.bluetears.transportmod.items.boatparts.SimplePropeller;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -39,7 +41,8 @@ public class TransportMod {
         //Below is the code for generating all of the blocks
         public final static Block curvedRail = new CurvedRail(500)
         .setStepSound(Block.soundGravelFootstep)
-        .setUnlocalizedName("curvedRail").setHardness(0.5F).setCreativeTab(CreativeTabs.tabTransport);;
+        .setUnlocalizedName("curvedRail").setHardness(0.5F).setCreativeTab(CreativeTabs.tabTransport);
+        public final static Block asphaltore = new AsphaltOre(501, Material.iron);
         
         //Below is the code for generating all of the items
         public final static Item advancedcircuit = new AdvancedCircuit(5001).setMaxStackSize(64).setUnlocalizedName("advancedCircuit");
@@ -95,6 +98,7 @@ public class TransportMod {
         	LanguageRegistry.addName(ironboathull, "Iron Boat Hull");
         	LanguageRegistry.addName(ironboat, "Iron Boat");
         	LanguageRegistry.addName(asphalt, "Asphalt");
+        	LanguageRegistry.addName(asphaltore, "Asphalt Ore");
         	
         }
         
