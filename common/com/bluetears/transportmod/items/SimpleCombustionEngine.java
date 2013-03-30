@@ -13,12 +13,14 @@ public SimpleCombustionEngine(int id)
 {
          super(id);
          setCreativeTab(TransportMod.transportmodtab);
+         setMaxStackSize(64);
+         setUnlocalizedName("simpleCombustionEngine");
 }
 
 @Override
 public void updateIcons(IconRegister iconRegister)
 {
-         iconIndex = iconRegister.registerIcon("transportmod:simplecombustionengine");
+         iconIndex = iconRegister.registerIcon("transportmod:simpleCombustionEngine");
 }
 
 }
