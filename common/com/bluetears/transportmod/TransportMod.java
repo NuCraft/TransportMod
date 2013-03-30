@@ -219,6 +219,7 @@ public class TransportMod {
         	GameRegistry.addSmelting(concreteSlurry.itemID, new ItemStack(concrete), 0.1f);
         	GameRegistry.addSmelting(oreCopper.blockID, new ItemStack(ingotCopper), 0.1f);
         	GameRegistry.addSmelting(oreTin.blockID, new ItemStack(ingotTin), 0.1f);
+        	GameRegistry.addSmelting(condensedAsphalt.itemID,new ItemStack(hotAsphalt),0.1f);
         	
         	//Crafting Recipes
         	GameRegistry.addRecipe(new ItemStack(simpleCircuit), "rqr", "ici","sss", 
@@ -234,6 +235,8 @@ public class TransportMod {
 			GameRegistry.addRecipe(new ItemStack(simplePropeller)," i "," i ","i i",'i',Item.ingotIron);
 			GameRegistry.addRecipe(new ItemStack(concreteSlurry),"sgs","gcg","sgs",'c',Block.blockClay,'g',Block.gravel,'s', Block.stone );
 			GameRegistry.addRecipe(new ItemStack(concreteSlurry),"gsg","scs","gsg",'c',Block.blockClay,'g',Block.gravel,'s', Block.stone );
+			GameRegistry.addRecipe(new ItemStack(condensedAsphalt),"ggg","gag","ggg",'a',asphalt,'g',Block.gravel);
+			GameRegistry.addRecipe(new ItemStack(asphaltRoad),"ccc","chc","ccc",'h',hotAsphalt,'c',concrete);
 		}
         
         public static void addMinables(){
