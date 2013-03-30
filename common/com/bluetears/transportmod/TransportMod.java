@@ -43,6 +43,7 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraftforge.common.Configuration;
+import net.minecraftforge.oredict.OreDictionary;
 
 @Mod(modid="TransportMod", name="TransportMod", version="0.0.1")
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
@@ -117,6 +118,7 @@ public class TransportMod {
         	addNames();
         	addCrafting();
         	registerBlocks();
+        	addOreDictionary();
 
             
                 proxy.registerRenderers();
@@ -199,6 +201,8 @@ public class TransportMod {
         	
         	//Furnace Recipes
         	GameRegistry.addSmelting(concreteSlurry.itemID, new ItemStack(concrete), 0.1f);
+        	GameRegistry.addSmelting(oreCopper.blockID, new ItemStack(ingotCopper), 0.1f);
+        	GameRegistry.addSmelting(oreTin.blockID, new ItemStack(ingotTin), 0.1f);
         	
         	//Crafting Recipes
         	GameRegistry.addRecipe(new ItemStack(simpleCircuit), "rqr", "ici","sss", 
@@ -226,6 +230,17 @@ public class TransportMod {
         public static void addWorldGens(){
         	GameRegistry.registerWorldGenerator(new TransportModWorldGenerator(oreCopperGenFlag,oreTinGenFlag));
         }
+        
+        public static void addOreDictionary(){
+        	OreDictionary.registerOre("ingotCopper", new ItemStack(ingotCopper));
+        	OreDictionary.registerOre("ingotTin", new ItemStack(ingotTin));
+        	OreDictionary.registerOre("oreCopper", new ItemStack(oreCopper));
+        	OreDictionary.registerOre("oreGuiltalium", new ItemStack(oreGuiltalium));
+        	OreDictionary.registerOre("oreAsphalt", new ItemStack(oreAsphalt));
+        	OreDictionary.registerOre("oreTin", new ItemStack(oreTin));
+        	OreDictionary.registerOre("itemAsphalt", new ItemStack(asphalt));
+			
+		}
         
         //Variables for the Blocks used in the mod
         public static Block curvedRail;
@@ -256,6 +271,8 @@ public class TransportMod {
         public static boolean oreCopperGenFlag;
         
         }
+
+		
         	
         
 
