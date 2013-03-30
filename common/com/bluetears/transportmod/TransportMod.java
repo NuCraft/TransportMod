@@ -53,7 +53,7 @@ public class TransportMod {
         //Calling of the 3 Creative Tabs and Config of them
         public static CreativeTabs transportmodtab = new CreativeTabs("transportmodtab") {
         	public ItemStack getIconItemStack() {
-                	return new ItemStack(Item.eyeOfEnder, 1, 0);
+                	return new ItemStack(guiltaliumore);
         	}
     	};
         public static CreativeTabs monorailstab = new CreativeTabs("monorailstab") {
@@ -68,7 +68,7 @@ public class TransportMod {
     	};
     	public static CreativeTabs trainstab = new CreativeTabs("trainstab") {
             public ItemStack getIconItemStack() {
-                    return new ItemStack(Item.eyeOfEnder, 1, 0);
+                    return new ItemStack(Block.rail);
             }
         };
         public static CreativeTabs roadstab = new CreativeTabs("roadstab") {
@@ -192,7 +192,7 @@ public class TransportMod {
         	GameRegistry.addRecipe(new ItemStack(advancedcircuit), "rqr", "gig","sss", 
         	        'r',Item.redstone, 'q',Item.field_94583_ca,'s',Item.ingotIron,'g',Item.ingotGold,'i',new ItemStack(Item.dyePowder,1,0));
         	GameRegistry.addRecipe(new ItemStack(advancedcircuit), " a ", "gsg"," i ", 
-        	        's',Item.ingotIron,'g',Item.ingotGold,'i',new ItemStack(Item.dyePowder,1,0));
+        	        's',Item.ingotIron,'g',Item.ingotGold,'i',new ItemStack(Item.dyePowder,1,0),'a',simplecircuit);
         	GameRegistry.addRecipe(new ItemStack(simplecombustionengine), "ipi", "i i","iii", 
         	        'i',Item.ingotIron,'p',Block.pistonBase);
         	GameRegistry.addRecipe(new ItemStack(ironboathull),"i i","iii","bbb",'i',Item.ingotIron,'b',new ItemStack(Item.potion,0));
