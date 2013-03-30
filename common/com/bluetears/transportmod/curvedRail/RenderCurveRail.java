@@ -43,7 +43,7 @@ GL11.glPopMatrix();
 return;
 }
 bindTextureByName("/mods/StargateTech/textures/stargate.png");
-model.render(curveRail, 1.0F);
+model.renderModel(0.0625F);
 GL11.glPopMatrix();
 }
 }
