@@ -139,16 +139,16 @@ public class TransportMod {
         }
         
         public static void addItems(){
-        	advancedCircuit = new AdvancedCircuit(startItemId).setMaxStackSize(64).setUnlocalizedName("advancedCircuit");
+        	advancedCircuit = new AdvancedCircuit(startItemId);
             simpleCircuit = new SimpleCircuit(startItemId+1).setMaxStackSize(64).setUnlocalizedName("simpleCircuit");
             simpleCombustionEngine = new SimpleCombustionEngine(startItemId+2).setMaxStackSize(64).setUnlocalizedName("simpleCombustionEngine");
             anchor = new Anchor(startItemId+3).setMaxStackSize(64).setUnlocalizedName("anchor");
             simplePropeller = new SimplePropeller(startItemId+4).setMaxStackSize(64).setUnlocalizedName("propeller");
-            ironBoatHull = new IronBoatHull(startItemId+5).setMaxStackSize(64).setUnlocalizedName("ironboathull");
-            ironBoat = new IronBoat(startItemId+6).setUnlocalizedName("ironboat");
-            asphalt = new Asphalt(startItemId+7).setUnlocalizedName("asphalt").setMaxStackSize(64);
+            ironBoatHull = new IronBoatHull(startItemId+5);
+            ironBoat = new IronBoat(startItemId+6);
+            asphalt = new Asphalt(startItemId+7);
             testPlacement = new TestPlacement(startItemId+8, curveRail).setUnlocalizedName("placementTest");
-            concreteSlurry = new ConcreteSlurry(startItemId+9).setUnlocalizedName("concreteSlurry");
+            concreteSlurry = new ConcreteSlurry(startItemId+9);
         }
 		
 		public static void registerBlocks(){

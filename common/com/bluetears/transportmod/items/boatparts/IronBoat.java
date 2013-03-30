@@ -10,6 +10,7 @@ public class IronBoat extends ItemBoat{
 		super(par1);
         this.maxStackSize = 1;
         this.setCreativeTab(TransportMod.boatstab);
+        setUnlocalizedName("ironboat");
 	}
 
 }

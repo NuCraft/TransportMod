@@ -13,6 +13,8 @@ public AdvancedCircuit(int id)
 {
          super(id);
          setCreativeTab(TransportMod.transportmodtab);
+         setMaxStackSize(64);
+         setUnlocalizedName("advancedCircuit");
 }
 
 @Override
