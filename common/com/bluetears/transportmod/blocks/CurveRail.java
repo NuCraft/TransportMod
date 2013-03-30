@@ -6,6 +6,7 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
@@ -19,9 +20,23 @@ public CurveRail(int par1, Class class1)
 super(par1, Material.iron);
 setCreativeTab(CreativeTabs.tabTransport);
 setUnlocalizedName("curveRail");
+//setBlockBounds(0.0F, 0.0F, 0.0F, 3.0F, 0.0625F, 3.0F);
 //this.setRequiresSelfNotify(); // absolutely needed
 
 }
+
+@Override
+public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int x, int y, int z)
+{
+	return AxisAlignedBB.getBoundingBox((double)x-1F, (double)y, (double)z -1F, (double)x + 2F, (double)y+0.0625, (double)z + 2F);
+} 
+
+@Override
+public AxisAlignedBB getSelectedBoundingBoxFromPool(World par1World, int x, int y, int z)
+{
+    return this.getCollisionBoundingBoxFromPool(par1World, x, y, z);
+}
+
 public void registerIcons(IconRegister par1IconRegister)
 {
          this.blockIcon = par1IconRegister.registerIcon("transportmod:curveRail");
