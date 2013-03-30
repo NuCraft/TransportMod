@@ -1,34 +1,45 @@
 package com.bluetears.transportmod.blocks;
 
 import com.bluetears.transportmod.TransportMod;
+import com.bluetears.transportmod.curvedRail.CurveRailTileEntity;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockRail;
 import net.minecraft.block.BlockRailBase;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 
-public class CurvedRail extends BlockRailBase {
+public class CurvedRail extends BlockRail {
 
+		private Icon theIcon;
+	
         public CurvedRail (int par1) {
-        	super(par1, false);
+        	super(par1);
                 
         }
    
         public void registerIcons(IconRegister par1IconRegister)
         {
-                 this.blockIcon = par1IconRegister.registerIcon("transportmod:curvedrail");
+            super.registerIcons(par1IconRegister);
+            this.blockIcon = par1IconRegister.registerIcon("transportmod:curvedrail");
+            this.theIcon = par1IconRegister.registerIcon("curvedRail_turn");
         }
+        
         
     	public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {
     		
     		int curve = getCurve(par2, par3, par4, par1World);
-
     		if ( curve!= 0)
     		{
     			if(curve >299)
     			{
-    				System.out.println("Valid 3x3 facing " + (curve-300));
-    			}
+    	
+    			par1World.setBlock(par2, par3, par4, TransportMod.curveRail.blockID, /*this.getBasicRailMetadata(par1World, null, par2, par3, par4)*/
+    					curve-300, 0);
+    			
+    			}	
     			else if(curve >199 && curve <299)
     			{
     				System.out.println("Valid 2x2 facing " + (curve-200));
@@ -51,13 +62,13 @@ public class CurvedRail extends BlockRailBase {
       			 &&	world.getBlockId(x - 1, y, z - 1) == TransportMod.curvedRail.blockID
       			 && world.getBlockId(x, y, z - 1)     == TransportMod.curvedRail.blockID) 
           		{
-          			return 301;
+          			return 303;
           		}
       			else if (world.getBlockId(x + 1, y, z - 1) == TransportMod.curvedRail.blockID
       				  && world.getBlockId(x - 1, y, z + 1) == TransportMod.curvedRail.blockID
       	      		  && world.getBlockId(x, y, z + 1)     == TransportMod.curvedRail.blockID) 
           		{
-          			return 300;
+          			return 302;
           		}
       			else if (world.getBlockId(x, y, z-1) == TransportMod.curvedRail.blockID)
           		{
@@ -76,13 +87,13 @@ public class CurvedRail extends BlockRailBase {
       			 && world.getBlockId(x + 1, y, z - 1) == TransportMod.curvedRail.blockID
         	     && world.getBlockId(x, y, z - 1)     == TransportMod.curvedRail.blockID) 
           		{
-          			return 311;
+          			return 300;
           		}
       			else if (world.getBlockId(x - 1, y, z - 1) == TransportMod.curvedRail.blockID
       				  && world.getBlockId(x + 1, y, z + 1) == TransportMod.curvedRail.blockID
         	      	  && world.getBlockId(x, y, z + 1)     == TransportMod.curvedRail.blockID) 
           		{
-          			return 310;
+          			return 301;
           		}
       			else if (world.getBlockId(x, y, z-1) == TransportMod.curvedRail.blockID)
           		{

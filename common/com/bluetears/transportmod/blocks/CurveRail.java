@@ -1,9 +1,13 @@
 package com.bluetears.transportmod.blocks;
 
+import java.util.Random;
+
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
@@ -14,6 +18,8 @@ import com.bluetears.transportmod.curvedRail.CurveRailTileEntity;
 
 public class CurveRail extends BlockContainer {
 
+public int rot = 0;
+	
 public CurveRail(int par1, Class class1)
 {
 
@@ -51,6 +57,7 @@ return false;
 
 public boolean blockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer){
 
+	
 int p = MathHelper.floor_double((double)((par5EntityPlayer.rotationYaw * 4F) / 360F) + 0.5D) & 3; //i don't know what this is for, so we better keep that there
 
 byte byte0 = 3;
@@ -79,7 +86,7 @@ return true;
 }
 
 public TileEntity getBlockEntity() {
-return new CurveRailTileEntity();
+return new CurveRailTileEntity(rot);
 
 }
 
@@ -87,7 +94,43 @@ return new CurveRailTileEntity();
 
 @Override
 public TileEntity createNewTileEntity(World world) {
-	return new CurveRailTileEntity();
+	return new CurveRailTileEntity(rot);
+	
 }
 
+@Override
+public void onBlockAdded(World par1World, int par2, int par3, int par4)
+{
+	super.onBlockAdded(par1World, par2, par3, par4);
+	
+	int x = par2-1;
+	while(x < (par2+2))
+		{
+			par1World.setBlockToAir(x, par3, par4+1);
+			par1World.setBlockToAir(x, par3, par4-1);
+			if(x !=par2){
+			par1World.setBlockToAir(x, par3, par4);
+		}
+			x++;
+		}
+	
+	if(par1World.getBlockMetadata(par2, par3, par4)== 3)
+			{
+			rot = 90;
+			}
+	else if(par1World.getBlockMetadata(par2, par3, par4)== 2)
+			{
+			rot = 135;
+			}
+	else if(par1World.getBlockMetadata(par2, par3, par4)== 1)
+			{
+			rot = 180;
+			}
+	else if(par1World.getBlockMetadata(par2, par3, par4)== 0)
+			{
+			rot =0;
+			}
+		System.out.println( "correct angle " + par1World.getBlockMetadata(par2, par3, par4));
+	
+}
 }
