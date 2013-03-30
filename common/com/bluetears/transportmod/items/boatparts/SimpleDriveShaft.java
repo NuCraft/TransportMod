@@ -12,15 +12,15 @@ public class SimpleDriveShaft extends Item
 public SimpleDriveShaft(int id)
 {
          super(id);
-         setCreativeTab(TransportMod.boatstab);
+         setCreativeTab(TransportMod.transportmodtab);
          setMaxStackSize(64);
-         setUnlocalizedName("anchor");
+         setUnlocalizedName("simpleDriveShaft");
 }
 
 @Override
 public void updateIcons(IconRegister iconRegister)
 {
-         iconIndex = iconRegister.registerIcon("transportmod:anchor");
+         iconIndex = iconRegister.registerIcon("transportmod:simpleDriveShaft");
 }
 
 }

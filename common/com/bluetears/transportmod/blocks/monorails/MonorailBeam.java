@@ -5,7 +5,6 @@ import com.bluetears.transportmod.TransportMod;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRailBase;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 
 public class MonorailBeam extends BlockRailBase {
 

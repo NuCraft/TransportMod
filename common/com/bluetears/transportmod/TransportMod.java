@@ -36,7 +36,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.src.ModLoader;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.Property;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -298,6 +297,7 @@ public class TransportMod {
         public static Item condensedAsphalt;
         public static Item hotAsphalt;
         public static Item guiltalium;
+        public static Item simpleDriveShaft;
         
         public static int startBlockId;
         public static int startItemId;
