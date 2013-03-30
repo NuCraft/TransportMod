@@ -13,6 +13,8 @@ public Anchor(int id)
 {
          super(id);
          setCreativeTab(TransportMod.boatstab);
+         setMaxStackSize(64);
+         setUnlocalizedName("anchor");
 }
 
 @Override
