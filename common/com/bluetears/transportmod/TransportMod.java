@@ -2,11 +2,9 @@ package com.bluetears.transportmod;
 
 
 import com.bluetears.transportmod.blocks.AsphaltOre;
-import com.bluetears.transportmod.blocks.CopperOre;
 import com.bluetears.transportmod.blocks.CurveRail;
 import com.bluetears.transportmod.blocks.CurvedRail;
-import com.bluetears.transportmod.blocks.GuiltaliumOre;
-import com.bluetears.transportmod.blocks.TinOre;
+import com.bluetears.transportmod.curvedRail.CurveRailTileEntity;
 import com.bluetears.transportmod.items.AdvancedCircuit;
 import com.bluetears.transportmod.items.Asphalt;
 import com.bluetears.transportmod.items.SimpleCircuit;
@@ -76,10 +74,7 @@ public class TransportMod {
         .setStepSound(Block.soundGravelFootstep)
         .setUnlocalizedName("curvedRail").setHardness(0.5F).setCreativeTab(CreativeTabs.tabTransport);
         public final static Block asphaltore = new AsphaltOre(501, Material.iron);
-        public final static Block guiltaliumore = new GuiltaliumOre(502, Material.iron);
-        public final static Block tinore = new TinOre(503, Material.iron);
-        public final static Block copperore = new CopperOre(504, Material.iron);
-        public final static Block curveRail = new CurveRail(499);
+        public final static Block curveRail = new CurveRail(499, CurveRailTileEntity.class);
         
         //Below is the code for generating all of the items
         public final static Item advancedcircuit = new AdvancedCircuit(5001).setMaxStackSize(64).setUnlocalizedName("advancedCircuit");
@@ -122,9 +117,6 @@ public class TransportMod {
 		public static void addBlocks(){
 			GameRegistry.registerBlock(curvedRail, "curvedRail");
 			GameRegistry.registerBlock(asphaltore, "asphaltore");
-			GameRegistry.registerBlock(tinore, "tintore");
-			GameRegistry.registerBlock(copperore, "copperore");
-			GameRegistry.registerBlock(guiltaliumore, "guiltaliumore");
 			GameRegistry.registerBlock(curveRail, "curveRail");
 		}
         
@@ -132,7 +124,8 @@ public class TransportMod {
         public static void addNames(){
         
         	//Watch your language!
-        	LanguageRegistry.addName(curvedRail, "ERMEHGERD");
+        	LanguageRegistry.addName(curveRail, "3x3 Curve");
+        	LanguageRegistry.addName(curvedRail, "Curved Rail");
         	LanguageRegistry.addName(advancedcircuit, "Advanced Circuit");
         	LanguageRegistry.addName(simplecircuit, "Simple Circuit");
         	LanguageRegistry.addName(simplecombustionengine, "Simple Combustion Engine");
@@ -142,9 +135,6 @@ public class TransportMod {
         	LanguageRegistry.addName(ironboat, "Iron Boat");
         	LanguageRegistry.addName(asphalt, "Asphalt");
         	LanguageRegistry.addName(asphaltore, "Asphalt Ore");
-        	LanguageRegistry.addName(tinore, "Tin Ore");
-        	LanguageRegistry.addName(copperore, "Copper Ore");
-        	LanguageRegistry.addName(guiltaliumore, "Guiltalium Ore");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.monorailstab", "en_US", "Monorails");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.transportmodtab", "en_US", "Transport Mod");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.boatstab", "en_US", "Boats");
@@ -168,9 +158,6 @@ public class TransportMod {
         
         public static void addMinables(){
         	MinecraftForge.setBlockHarvestLevel(asphaltore, "pickaxe", 1);
-        	MinecraftForge.setBlockHarvestLevel(guiltaliumore, "pickaxe", 3);
-        	MinecraftForge.setBlockHarvestLevel(copperore, "pickaxe", 1);
-        	MinecraftForge.setBlockHarvestLevel(tinore, "pickaxe", 2);
         }
         
         public static void addWorldGens(){
