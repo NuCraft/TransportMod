@@ -3,6 +3,9 @@ package com.bluetears.transportmod.blocks;
 import com.bluetears.transportmod.TransportMod;
 import com.bluetears.transportmod.curvedRail.CurveRailTileEntity;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRail;
 import net.minecraft.block.BlockRailBase;
@@ -24,7 +27,18 @@ public class CurvedRail extends BlockRail {
         {
             super.registerIcons(par1IconRegister);
             this.blockIcon = par1IconRegister.registerIcon("transportmod:curvedrail");
-            this.theIcon = par1IconRegister.registerIcon("curvedRail_turn");
+            this.theIcon = par1IconRegister.registerIcon("transportmod:curvedRail_turn");
+        }
+        
+
+        @SideOnly(Side.CLIENT)
+
+        /**
+         * From the specified side and block metadata retrieves the blocks texture. Args: side, metadata
+         */
+        public Icon getBlockTextureFromSideAndMetadata(int par1, int par2)
+        {
+            return par2 >= 6 ? this.theIcon : this.blockIcon;
         }
         
         
@@ -36,8 +50,7 @@ public class CurvedRail extends BlockRail {
     			if(curve >299)
     			{
     	
-    			par1World.setBlock(par2, par3, par4, TransportMod.curveRail.blockID, /*this.getBasicRailMetadata(par1World, null, par2, par3, par4)*/
-    					curve-300, 0);
+    			par1World.setBlock(par2, par3, par4, TransportMod.curveRail.blockID, curve-300, 0);
     			
     			}	
     			else if(curve >199 && curve <299)

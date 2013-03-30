@@ -113,24 +113,5 @@ public void onBlockAdded(World par1World, int par2, int par3, int par4)
 		}
 			x++;
 		}
-	
-	if(par1World.getBlockMetadata(par2, par3, par4)== 3)
-			{
-			rot = 90;
-			}
-	else if(par1World.getBlockMetadata(par2, par3, par4)== 2)
-			{
-			rot = 135;
-			}
-	else if(par1World.getBlockMetadata(par2, par3, par4)== 1)
-			{
-			rot = 180;
-			}
-	else if(par1World.getBlockMetadata(par2, par3, par4)== 0)
-			{
-			rot =0;
-			}
-		System.out.println( "correct angle " + par1World.getBlockMetadata(par2, par3, par4));
-	
 }
 }

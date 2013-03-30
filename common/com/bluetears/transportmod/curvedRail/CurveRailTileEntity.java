@@ -10,8 +10,6 @@ public class CurveRailTileEntity extends TileEntity {
 	public CurveRailTileEntity(int rot)
 	{
 		super();
-		rota = rot;
-		System.out.println("Chekc create" + rot);
 	}
 }
 
