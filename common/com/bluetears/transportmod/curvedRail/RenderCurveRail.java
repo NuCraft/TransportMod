@@ -1,12 +1,7 @@
 package com.bluetears.transportmod.curvedRail;
 
-
-//import lordfokas.stargatetech.machine.StargateTE;
-//import lordfokas.stargatetech.util.Helper;
-
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
-
 import org.lwjgl.opengl.GL11;
 
 /**
@@ -26,8 +21,8 @@ public void renderAModelAt(CurveRailTileEntity tile, double d, double d1, double
 {
 // here comes the hard part
 
+@SuppressWarnings("unused")
 int i =0; // a regular int, with a zero. more on this below
-int angle = tile.rota;
 if(tile.worldObj != null) // to tell the world that your object is placed.
 {
 i =(tile.worldObj.getBlockMetadata(tile.xCoord, tile.yCoord, tile.zCoord)); // to tell the game it needs to pick up metadata from your block

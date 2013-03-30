@@ -19,7 +19,6 @@ import com.bluetears.transportmod.items.CopperIngot;
 import com.bluetears.transportmod.items.Guiltalium;
 import com.bluetears.transportmod.items.SimpleCircuit;
 import com.bluetears.transportmod.items.SimpleCombustionEngine;
-import com.bluetears.transportmod.items.TestPlacement;
 import com.bluetears.transportmod.items.TinIngot;
 import com.bluetears.transportmod.items.boatparts.Anchor;
 import com.bluetears.transportmod.items.boatparts.IronBoat;
@@ -158,13 +157,12 @@ public class TransportMod {
             ironBoatHull = new IronBoatHull(startItemId+5);
             ironBoat = new IronBoat(startItemId+6);
             asphalt = new Asphalt(startItemId+7);
-            testPlacement = new TestPlacement(startItemId+8, curveRail).setUnlocalizedName("placementTest");
-            concreteSlurry = new ConcreteSlurry(startItemId+9);
-            ingotCopper = new CopperIngot(startItemId+10);
-            ingotTin = new TinIngot(startItemId+11);
-            hotAsphalt = new HotAsphalt(startItemId+12);
-            condensedAsphalt = new CondensedAsphalt(startItemId+13);
-            guiltalium = new Guiltalium(startItemId+14);
+            concreteSlurry = new ConcreteSlurry(startItemId+8);
+            ingotCopper = new CopperIngot(startItemId+9);
+            ingotTin = new TinIngot(startItemId+10);
+            hotAsphalt = new HotAsphalt(startItemId+11);
+            condensedAsphalt = new CondensedAsphalt(startItemId+12);
+            guiltalium = new Guiltalium(startItemId+13);
         }
 		
 		public static void registerBlocks(){
@@ -290,7 +288,6 @@ public class TransportMod {
         public static Item ironBoatHull;
         public static Item ironBoat;
         public static Item asphalt;
-        public static Item testPlacement;
         public static Item concreteSlurry;
         public static Item ingotCopper;
         public static Item ingotTin;

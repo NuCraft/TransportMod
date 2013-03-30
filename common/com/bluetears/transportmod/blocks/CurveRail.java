@@ -1,13 +1,9 @@
 package com.bluetears.transportmod.blocks;
 
-import java.util.Random;
-
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
@@ -20,7 +16,7 @@ public class CurveRail extends BlockContainer {
 
 public int rot = 0;
 	
-public CurveRail(int par1, Class class1)
+public CurveRail(int par1, @SuppressWarnings("rawtypes") Class class1)
 {
 
 super(par1, Material.iron);

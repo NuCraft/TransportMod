@@ -1,14 +1,10 @@
 package com.bluetears.transportmod.blocks;
 
 import com.bluetears.transportmod.TransportMod;
-import com.bluetears.transportmod.curvedRail.CurveRailTileEntity;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockRail;
-import net.minecraft.block.BlockRailBase;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.Icon;
