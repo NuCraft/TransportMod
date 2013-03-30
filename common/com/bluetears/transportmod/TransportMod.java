@@ -8,10 +8,12 @@ import com.bluetears.transportmod.blocks.CurvedRail;
 import com.bluetears.transportmod.blocks.GuiltaliumOre;
 import com.bluetears.transportmod.blocks.TinOre;
 import com.bluetears.transportmod.curvedRail.CurveRailTileEntity;
+import com.bluetears.transportmod.curvedRail.RenderCurveRail;
 import com.bluetears.transportmod.items.AdvancedCircuit;
 import com.bluetears.transportmod.items.Asphalt;
 import com.bluetears.transportmod.items.SimpleCircuit;
 import com.bluetears.transportmod.items.SimpleCombustionEngine;
+import com.bluetears.transportmod.items.TestPlacement;
 import com.bluetears.transportmod.items.boatparts.Anchor;
 import com.bluetears.transportmod.items.boatparts.IronBoat;
 import com.bluetears.transportmod.items.boatparts.IronBoatHull;
@@ -22,6 +24,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.src.ModLoader;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
@@ -130,6 +133,7 @@ public class TransportMod {
             ironboathull = new IronBoatHull(5006).setMaxStackSize(64).setUnlocalizedName("ironboathull");
             ironboat = new IronBoat(5007).setUnlocalizedName("ironboat");
             asphalt = new Asphalt(5008).setUnlocalizedName("asphalt").setMaxStackSize(64);
+            testPlacement = new TestPlacement(5009, curveRail).setUnlocalizedName("placementTest");
         }
 		
 		public static void registerBlocks(){
@@ -164,6 +168,9 @@ public class TransportMod {
         	LanguageRegistry.instance().addStringLocalization("itemGroup.boatstab", "en_US", "Boats");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.trainstab", "en_US", "Trains");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.roadstab", "en_US", "Roads");
+        	
+        	ModLoader.registerTileEntity(CurveRailTileEntity.class, "CurveRail", new RenderCurveRail() );
+
         	
         }
         
@@ -208,6 +215,7 @@ public class TransportMod {
         public static Item ironboathull;
         public static Item ironboat;
         public static Item asphalt;
+        public static Item testPlacement;
         
         }
         	
