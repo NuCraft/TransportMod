@@ -9,6 +9,7 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 import com.bluetears.transportmod.curvedRail.CurveRailTileEntity;
@@ -17,71 +18,64 @@ import com.bluetears.transportmod.curvedRail.RenderCurveRail;
 
 public class CurveRail extends BlockContainer {
 
-public CurveRail(int par1) {
-	super(par1, Material.iron);
-setUnlocalizedName("curveRail");
-setLightOpacity(0);
+public CurveRail(int par1, Class class1)
+{
+
+super(par1, Material.iron);
 setCreativeTab(CreativeTabs.tabTransport);
+setUnlocalizedName("curveRail");
+//this.setRequiresSelfNotify(); // absolutely needed
+
 }
+
+public boolean isOpaqueCube() {
+return false;
+} // make it opaque cube, or else you will be able to see trough the world !
+public boolean renderAsNormalBlock() {
+return false;
+}
+
+
+public boolean blockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer){
+
+int p = MathHelper.floor_double((double)((par5EntityPlayer.rotationYaw * 4F) / 360F) + 0.5D) & 3; //i don't know what this is for, so we better keep that there
+
+byte byte0 = 3;
+
+
+if (p == 0)
+{
+byte0 = 4;
+}
+if (p == 1)
+{
+byte0 = 3;
+}
+if (p == 2)
+{
+byte0 = 2;
+}
+if (p == 3)
+{
+byte0 = 1;
+}
+
+par1World.setBlockMetadataWithNotify(par2, par3, par4, (int)byte0, 0);
+
+return true;
+}
+
+public TileEntity getBlockEntity() {
+return new CurveRailTileEntity();
+
+}
+
+
 
 @Override
-public void onBlockPlacedBy(World w, int x, int y, int z, EntityLiving l, ItemStack stack){
-int dir = Helper.yaw2dir(l.rotationYaw);
-dir = Helper.oppositeDirection(dir);
-placeStargateWithRotation(w, x, y, z, dir);
+public TileEntity createNewTileEntity(World world) {
+	// TODO Auto-generated method stub
+	return new CurveRailTileEntity();
 }
-
-public void placeStargateWithRotation(World w, int x, int y, int z, int dir){
-checkPlace(w, x, y, z, dir);
-}
-/*
-@Override
-public int getRenderType(){
-return RenderCurveRail.instance().getRenderId();
-}
-*/
-public void checkPlace(World w, int x, int y, int z, int dir){
-boolean placed = false;
-boolean dirX = (dir == Helper.dirXNeg || dir == Helper.dirXPos);
-if(dirX){
-if(w.isAirBlock(x, y, z+1) && w.isAirBlock(x, y, z-1) && w.isAirBlock(x, y, z+2) && w.isAirBlock(x, y, z-2)){
-placed = true;
-for(int lz = -3; lz <= 3; lz++){
-for(int ly = 1; ly <= 6; ly++){
-if(!w.isAirBlock(x, y + ly, z + lz)){
-placed = false;
-break;
-}
-}
-if(!placed){
-break;
-}
-}
-}
-} else {
-if(w.isAirBlock(x+1, y, z) && w.isAirBlock(x-1, y, z) && w.isAirBlock(x+2, y, z) && w.isAirBlock(x-2, y, z)){
-placed = true;
-for(int lx = -3; lx <= 3; lx++){
-for(int ly = 1; ly <= 6; ly++){
-if(!w.isAirBlock(x + lx, y + ly, z)){
-placed = false;
-break;
-}
-}
-if(!placed){
-break;
-}
-}
-}
-}
-}
-
-@Override
-public void breakBlock(World w, int x, int y, int z, int id, int meta){
-}
-
-@Override public boolean isOpaqueCube(){ return false; }
-@Override public TileEntity createNewTileEntity(World w){ return new CurveRailTileEntity(); }
-
 
 }
