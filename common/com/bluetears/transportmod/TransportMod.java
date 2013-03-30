@@ -2,6 +2,7 @@ package com.bluetears.transportmod;
 
 
 import com.bluetears.transportmod.blocks.AsphaltOre;
+import com.bluetears.transportmod.blocks.Concrete;
 import com.bluetears.transportmod.blocks.CopperOre;
 import com.bluetears.transportmod.blocks.CurveRail;
 import com.bluetears.transportmod.blocks.CurvedRail;
@@ -132,6 +133,7 @@ public class TransportMod {
             tinOre = new TinOre(startBlockId+3, Material.iron);
             copperOre = new CopperOre(startBlockId+4, Material.iron);
             curveRail = new CurveRail(startBlockId+5, CurveRailTileEntity.class);
+            concrete = new Concrete(startBlockId+6,Material.iron);
         	
         }
         
@@ -154,6 +156,7 @@ public class TransportMod {
 			GameRegistry.registerBlock(copperOre, "copperore");
 			GameRegistry.registerBlock(guiltaliumOre, "guiltaliumore");
 			GameRegistry.registerBlock(curveRail, "curveRail");
+			GameRegistry.registerBlock(concrete,"concrete");
 		}
         
         
