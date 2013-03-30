@@ -62,7 +62,7 @@ public class TransportModWorldGenerator implements IWorldGenerator{
         }
 		
 		if(copperOreGen == true){
-		for(int k = 0; k < 20; k++){
+		for(int k = 0; k < 8; k++){
         	int firstBlockXCoord = chunkX + random.nextInt(16);
         	int firstBlockYCoord = random.nextInt(32)+32;
         	int firstBlockZCoord = chunkZ + random.nextInt(16);
@@ -73,7 +73,7 @@ public class TransportModWorldGenerator implements IWorldGenerator{
 		else{}
 		
 		if(tinOreGen == true){
-		for(int k = 0; k < 20; k++){
+		for(int k = 0; k < 7; k++){
         	int firstBlockXCoord = chunkX + random.nextInt(16);
         	int firstBlockYCoord = random.nextInt(32)+32;
         	int firstBlockZCoord = chunkZ + random.nextInt(16);
