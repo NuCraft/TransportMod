@@ -13,6 +13,7 @@ public class GuiltaliumOre extends Block {
                 setHardness(4.0F); // 33% harder than diamond
                 setStepSound(Block.soundStoneFootstep);
                 setCreativeTab(TransportMod.transportmodtab);
+                setUnlocalizedName("guiltaliumore");
         }
         
         public void registerIcons(IconRegister par1IconRegister)

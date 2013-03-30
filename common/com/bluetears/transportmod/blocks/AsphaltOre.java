@@ -15,6 +15,7 @@ public class AsphaltOre extends Block {
                 setHardness(4.0F); // 33% harder than diamond
                 setStepSound(Block.soundStoneFootstep);
                 setCreativeTab(TransportMod.transportmodtab);
+                setUnlocalizedName("asphaltore");
         }
         
         public void registerIcons(IconRegister par1IconRegister)

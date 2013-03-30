@@ -13,6 +13,7 @@ public class CopperOre extends Block {
                 setHardness(4.0F); // 33% harder than diamond
                 setStepSound(Block.soundStoneFootstep);
                 setCreativeTab(TransportMod.transportmodtab);
+                setUnlocalizedName("copperore");
         }
         
         public void registerIcons(IconRegister par1IconRegister)

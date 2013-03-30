@@ -122,6 +122,9 @@ public class TransportMod {
 		public static void addBlocks(){
 			GameRegistry.registerBlock(curvedRail, "curvedRail");
 			GameRegistry.registerBlock(asphaltore, "asphaltore");
+			GameRegistry.registerBlock(tinore, "tintore");
+			GameRegistry.registerBlock(copperore, "copperore");
+			GameRegistry.registerBlock(guiltaliumore, "guiltaliumore");
 			GameRegistry.registerBlock(curveRail, "curveRail");
 		}
         
@@ -139,6 +142,9 @@ public class TransportMod {
         	LanguageRegistry.addName(ironboat, "Iron Boat");
         	LanguageRegistry.addName(asphalt, "Asphalt");
         	LanguageRegistry.addName(asphaltore, "Asphalt Ore");
+        	LanguageRegistry.addName(tinore, "Tin Ore");
+        	LanguageRegistry.addName(copperore, "Copper Ore");
+        	LanguageRegistry.addName(guiltaliumore, "Guiltalium Ore");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.monorailstab", "en_US", "Monorails");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.transportmodtab", "en_US", "Transport Mod");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.boatstab", "en_US", "Boats");
@@ -162,6 +168,9 @@ public class TransportMod {
         
         public static void addMinables(){
         	MinecraftForge.setBlockHarvestLevel(asphaltore, "pickaxe", 1);
+        	MinecraftForge.setBlockHarvestLevel(guiltaliumore, "pickaxe", 3);
+        	MinecraftForge.setBlockHarvestLevel(copperore, "pickaxe", 1);
+        	MinecraftForge.setBlockHarvestLevel(tinore, "pickaxe", 2);
         }
         
         public static void addWorldGens(){
