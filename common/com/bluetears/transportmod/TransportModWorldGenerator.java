@@ -36,7 +36,7 @@ public class TransportModWorldGenerator implements IWorldGenerator{
 		
 		for(int k = 0; k < 10; k++){
         	int firstBlockXCoord = chunkX + random.nextInt(16);
-        	int firstBlockYCoord = random.nextInt(64);
+        	int firstBlockYCoord = random.nextInt(32)+32;
         	int firstBlockZCoord = chunkZ + random.nextInt(16);
         	
         	(new WorldGenMinable(TransportMod.asphaltore.blockID, 8)).generate(world, random, firstBlockXCoord, firstBlockYCoord, firstBlockZCoord);
@@ -44,7 +44,7 @@ public class TransportModWorldGenerator implements IWorldGenerator{
 		
 		for(int k = 0; k < 10; k++){
         	int firstBlockXCoord = chunkX + random.nextInt(16);
-        	int firstBlockYCoord = random.nextInt(64);
+        	int firstBlockYCoord = random.nextInt(20);
         	int firstBlockZCoord = chunkZ + random.nextInt(16);
         	
         	(new WorldGenMinable(TransportMod.guiltaliumore.blockID, 4)).generate(world, random, firstBlockXCoord, firstBlockYCoord, firstBlockZCoord);
@@ -52,7 +52,7 @@ public class TransportModWorldGenerator implements IWorldGenerator{
 		
 		for(int k = 0; k < 10; k++){
         	int firstBlockXCoord = chunkX + random.nextInt(16);
-        	int firstBlockYCoord = random.nextInt(64);
+        	int firstBlockYCoord = random.nextInt(32)+32;
         	int firstBlockZCoord = chunkZ + random.nextInt(16);
         	
         	(new WorldGenMinable(TransportMod.copperore.blockID, 8)).generate(world, random, firstBlockXCoord, firstBlockYCoord, firstBlockZCoord);
@@ -60,7 +60,7 @@ public class TransportModWorldGenerator implements IWorldGenerator{
 		
 		for(int k = 0; k < 10; k++){
         	int firstBlockXCoord = chunkX + random.nextInt(16);
-        	int firstBlockYCoord = random.nextInt(64);
+        	int firstBlockYCoord = random.nextInt(32)+32;
         	int firstBlockZCoord = chunkZ + random.nextInt(16);
         	
         	(new WorldGenMinable(TransportMod.tinore.blockID, 6)).generate(world, random, firstBlockXCoord, firstBlockYCoord, firstBlockZCoord);
