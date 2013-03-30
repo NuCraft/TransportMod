@@ -8,7 +8,16 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 import cpw.mods.fml.common.IWorldGenerator;
 
 public class TransportModWorldGenerator implements IWorldGenerator{
-
+	
+	private boolean copperOreGen;
+	private boolean tinOreGen;
+	
+	TransportModWorldGenerator(boolean copperOreGen,boolean tinOreGen){
+		copperOreGen = this.copperOreGen;
+		tinOreGen = this.tinOreGen;
+		
+	}
+	
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world,
 			IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
@@ -34,6 +43,7 @@ public class TransportModWorldGenerator implements IWorldGenerator{
 
 	private void generateSurface(World world, Random random, int chunkX, int chunkZ) {
 		
+		
 		for(int k = 0; k < 10; k++){
         	int firstBlockXCoord = chunkX + random.nextInt(16);
         	int firstBlockYCoord = random.nextInt(32)+32;
@@ -42,7 +52,8 @@ public class TransportModWorldGenerator implements IWorldGenerator{
         	(new WorldGenMinable(TransportMod.asphaltore.blockID, 8)).generate(world, random, firstBlockXCoord, firstBlockYCoord, firstBlockZCoord);
         }
 		
-		for(int k = 0; k < 10; k++){
+		
+		for(int k = 0; k < 3; k++){
         	int firstBlockXCoord = chunkX + random.nextInt(16);
         	int firstBlockYCoord = random.nextInt(20);
         	int firstBlockZCoord = chunkZ + random.nextInt(16);
@@ -50,21 +61,28 @@ public class TransportModWorldGenerator implements IWorldGenerator{
         	(new WorldGenMinable(TransportMod.guiltaliumore.blockID, 4)).generate(world, random, firstBlockXCoord, firstBlockYCoord, firstBlockZCoord);
         }
 		
-		for(int k = 0; k < 10; k++){
+		if(copperOreGen){
+		for(int k = 0; k < 20; k++){
         	int firstBlockXCoord = chunkX + random.nextInt(16);
         	int firstBlockYCoord = random.nextInt(32)+32;
         	int firstBlockZCoord = chunkZ + random.nextInt(16);
         	
         	(new WorldGenMinable(TransportMod.copperore.blockID, 8)).generate(world, random, firstBlockXCoord, firstBlockYCoord, firstBlockZCoord);
         }
+		}
+		else{}
 		
-		for(int k = 0; k < 10; k++){
+		if(tinOreGen){
+		for(int k = 0; k < 20; k++){
         	int firstBlockXCoord = chunkX + random.nextInt(16);
         	int firstBlockYCoord = random.nextInt(32)+32;
         	int firstBlockZCoord = chunkZ + random.nextInt(16);
         	
         	(new WorldGenMinable(TransportMod.tinore.blockID, 6)).generate(world, random, firstBlockXCoord, firstBlockYCoord, firstBlockZCoord);
         }
+		
+		}
+		else{}
 		
 		
 		

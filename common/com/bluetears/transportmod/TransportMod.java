@@ -93,13 +93,10 @@ public class TransportMod {
             startItemId = config.getItem("Starting Item Id", 20000).getInt();
 
             // Since this flag is a boolean, we can read it into the variable directly from the config.
-            someConfigFlag = config.get(Configuration.CATEGORY_GENERAL, "SomeConfigFlag", false).getBoolean(false);
+            tinOreGenFlag = config.get(Configuration.CATEGORY_GENERAL, "Tin Ore Generation Flag", false).getBoolean(true);
+            copperOreGenFlag = config.get(Configuration.CATEGORY_GENERAL, "Copper Ore Generation Flag", false).getBoolean(true);
             
-            //Notice there is nothing that gets the value of this property so the expression results in a Property object.
-            Property someProperty = config.get(Configuration.CATEGORY_GENERAL, "SomeConfigString", "nothing");
             
-            // Here we add a comment to our new property.
-            someProperty.comment = "This value can be read as a string!";
 
 
 
@@ -209,7 +206,7 @@ public class TransportMod {
         }
         
         public static void addWorldGens(){
-        	GameRegistry.registerWorldGenerator(new TransportModWorldGenerator());
+        	GameRegistry.registerWorldGenerator(new TransportModWorldGenerator(copperOreGenFlag,tinOreGenFlag));
         }
         
         //Variables for the Blocks used in the mod
@@ -233,7 +230,8 @@ public class TransportMod {
         
         public static int startBlockId;
         public static int startItemId;
-        public static boolean someConfigFlag;
+        public static boolean tinOreGenFlag;
+        public static boolean copperOreGenFlag;
         
         }
         	
