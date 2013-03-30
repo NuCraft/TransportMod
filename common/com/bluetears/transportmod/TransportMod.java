@@ -9,10 +9,10 @@ import com.bluetears.transportmod.blocks.CurveRail;
 import com.bluetears.transportmod.blocks.CurvedRail;
 import com.bluetears.transportmod.blocks.GuiltaliumOre;
 import com.bluetears.transportmod.blocks.TinOre;
+import com.bluetears.transportmod.blocks.roads.AsphaltRoad;
 import com.bluetears.transportmod.curvedRail.CurveRailTileEntity;
 import com.bluetears.transportmod.curvedRail.RenderCurveRail;
 import com.bluetears.transportmod.items.AdvancedCircuit;
-import com.bluetears.transportmod.items.Asphalt;
 import com.bluetears.transportmod.items.ConcreteSlurry;
 import com.bluetears.transportmod.items.CopperIngot;
 import com.bluetears.transportmod.items.SimpleCircuit;
@@ -23,6 +23,9 @@ import com.bluetears.transportmod.items.boatparts.Anchor;
 import com.bluetears.transportmod.items.boatparts.IronBoat;
 import com.bluetears.transportmod.items.boatparts.IronBoatHull;
 import com.bluetears.transportmod.items.boatparts.SimplePropeller;
+import com.bluetears.transportmod.items.roads.Asphalt;
+import com.bluetears.transportmod.items.roads.CondensedAsphalt;
+import com.bluetears.transportmod.items.roads.HotAsphalt;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -140,6 +143,7 @@ public class TransportMod {
             oreCopper = new CopperOre(startBlockId+4, Material.iron);
             curveRail = new CurveRail(startBlockId+5, CurveRailTileEntity.class);
             concrete = new Concrete(startBlockId+6,Material.iron);
+            asphaltRoad = new AsphaltRoad(startBlockId+7,Material.iron);
         	
         }
         
@@ -156,6 +160,8 @@ public class TransportMod {
             concreteSlurry = new ConcreteSlurry(startItemId+9);
             ingotCopper = new CopperIngot(startItemId+10);
             ingotTin = new TinIngot(startItemId+11);
+            hotAsphalt = new HotAsphalt(startItemId+12);
+            condensedAsphalt = new CondensedAsphalt(startItemId+13);
         }
 		
 		public static void registerBlocks(){
@@ -166,6 +172,7 @@ public class TransportMod {
 			GameRegistry.registerBlock(oreGuiltalium, "oreGuiltalium");
 			GameRegistry.registerBlock(curveRail, "curveRail");
 			GameRegistry.registerBlock(concrete,"concrete");
+			GameRegistry.registerBlock(asphaltRoad,"asphaltRoad");
 		}
         
         
@@ -190,6 +197,9 @@ public class TransportMod {
         	LanguageRegistry.addName(concreteSlurry, "Concrete Slurry");
         	LanguageRegistry.addName(ingotTin,"Tin Ingot");
         	LanguageRegistry.addName(ingotCopper,"Copper Ingot");
+        	LanguageRegistry.addName(hotAsphalt,"Hot Asphalt");
+        	LanguageRegistry.addName(condensedAsphalt, "Condensed Asphalt");
+        	LanguageRegistry.addName(asphaltRoad, "Asphalt Road");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.monorailstab", "en_US", "Monorails");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.transportmodtab", "en_US", "Transport Mod");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.boatstab", "en_US", "Boats");
@@ -256,6 +266,7 @@ public class TransportMod {
         public static Block oreCopper;
         public static Block curveRail;
         public static Block concrete;
+        public static Block asphaltRoad;
         
         //Variables for the items used in the mod
         public static Item advancedCircuit;
@@ -270,6 +281,8 @@ public class TransportMod {
         public static Item concreteSlurry;
         public static Item ingotCopper;
         public static Item ingotTin;
+        public static Item condensedAsphalt;
+        public static Item hotAsphalt;
         
         public static int startBlockId;
         public static int startItemId;

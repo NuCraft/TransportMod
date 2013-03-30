@@ -1,4 +1,4 @@
-package com.bluetears.transportmod.items;
+package com.bluetears.transportmod.items.roads;
 
 import com.bluetears.transportmod.TransportMod;
 
@@ -12,7 +12,7 @@ public class Asphalt extends Item
 public Asphalt(int id)
 {
          super(id);
-         setCreativeTab(TransportMod.transportmodtab);
+         setCreativeTab(TransportMod.roadstab);
          setUnlocalizedName("asphalt");
          setMaxStackSize(64);
 }
