@@ -191,6 +191,8 @@ public class TransportMod {
         	        'r',Item.redstone, 'q',Item.field_94583_ca,'s',Block.stone,'i',Item.ingotIron,'c',new ItemStack(Item.dyePowder,1,2));
         	GameRegistry.addRecipe(new ItemStack(advancedcircuit), "rqr", "gig","sss", 
         	        'r',Item.redstone, 'q',Item.field_94583_ca,'s',Item.ingotIron,'g',Item.ingotGold,'i',new ItemStack(Item.dyePowder,1,0));
+        	GameRegistry.addRecipe(new ItemStack(advancedcircuit), " a ", "gsg"," i ", 
+        	        's',Item.ingotIron,'g',Item.ingotGold,'i',new ItemStack(Item.dyePowder,1,0));
         	GameRegistry.addRecipe(new ItemStack(simplecombustionengine), "ipi", "i i","iii", 
         	        'i',Item.ingotIron,'p',Block.pistonBase);
         	GameRegistry.addRecipe(new ItemStack(ironboathull),"i i","iii","bbb",'i',Item.ingotIron,'b',new ItemStack(Item.potion,0));
