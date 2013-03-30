@@ -186,6 +186,8 @@ public class TransportMod {
         	LanguageRegistry.instance().addStringLocalization("itemGroup.roadstab", "en_US", "Roads");
         	
         	ModLoader.registerTileEntity(CurveRailTileEntity.class, "CurveRail", new RenderCurveRail() );
+        	
+        	
 
         	
         }
@@ -203,6 +205,8 @@ public class TransportMod {
         	GameRegistry.addRecipe(new ItemStack(ironBoatHull),"i i","iii","bbb",'i',Item.ingotIron,'b',new ItemStack(Item.potion,0));
 			GameRegistry.addRecipe(new ItemStack(anchor)," i "," i ","iii",'i',Item.ingotIron);
 			GameRegistry.addRecipe(new ItemStack(simplePropeller)," i "," i ","i i",'i',Item.ingotIron);
+			GameRegistry.addRecipe(new ItemStack(concreteSlurry),"sgs","gcg","sgs",'c',Block.blockClay,'g',Block.gravel,'s', Block.stone );
+			GameRegistry.addRecipe(new ItemStack(concreteSlurry),"gsg","scs","gsg",'c',Block.blockClay,'g',Block.gravel,'s', Block.stone );
 		}
         
         public static void addMinables(){
