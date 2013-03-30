@@ -140,8 +140,8 @@ public class TransportMod {
         
         public static void addItems(){
         	advancedCircuit = new AdvancedCircuit(startItemId);
-            simpleCircuit = new SimpleCircuit(startItemId+1).setMaxStackSize(64).setUnlocalizedName("simpleCircuit");
-            simpleCombustionEngine = new SimpleCombustionEngine(startItemId+2).setMaxStackSize(64).setUnlocalizedName("simpleCombustionEngine");
+            simpleCircuit = new SimpleCircuit(startItemId+1);
+            simpleCombustionEngine = new SimpleCombustionEngine(startItemId+2);
             anchor = new Anchor(startItemId+3);
             simplePropeller = new SimplePropeller(startItemId+4);
             ironBoatHull = new IronBoatHull(startItemId+5);
