@@ -26,6 +26,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.src.ModLoader;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.Property;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -88,8 +89,27 @@ public class TransportMod {
         
         @PreInit
         public void preInit(FMLPreInitializationEvent event) {
-                
-        	
+        	Configuration config = new Configuration(event.getSuggestedConfigurationFile());
+
+            config.load();
+
+            startBlockId = config.getBlock("RandomBlock", 200).getInt();
+
+            startItemId = config.getItem("RandomItem", 20000).getInt();
+
+            // Since this flag is a boolean, we can read it into the variable directly from the config.
+            someConfigFlag = config.get(Configuration.CATEGORY_GENERAL, "SomeConfigFlag", false).getBoolean(false);
+            
+            //Notice there is nothing that gets the value of this property so the expression results in a Property object.
+            Property someProperty = config.get(Configuration.CATEGORY_GENERAL, "SomeConfigString", "nothing");
+            
+            // Here we add a comment to our new property.
+            someProperty.comment = "This value can be read as a string!";
+
+
+
+            config.save();
+            
         }
         
         @Init
@@ -216,8 +236,9 @@ public class TransportMod {
         public static Item asphalt;
         public static Item testPlacement;
         
-        public static int startBlockId = 500;
-        public static int startItemId = 5000;
+        public static int startBlockId;
+        public static int startItemId;
+        public static boolean someConfigFlag;
         
         }
         	
