@@ -1,5 +1,7 @@
 package com.bluetears.transportmod.blocks;
 
+import java.util.Random;
+
 import com.bluetears.transportmod.TransportMod;
 
 import net.minecraft.block.Block;
@@ -22,5 +24,7 @@ public class GuiltaliumOre extends Block {
         }
 
         
-        
+        public int idDropped(int par1, Random random, int par2) {
+            return TransportMod.guiltalium.itemID;
+    }
 }

@@ -16,6 +16,7 @@ import com.bluetears.transportmod.curvedRail.RenderCurveRail;
 import com.bluetears.transportmod.items.AdvancedCircuit;
 import com.bluetears.transportmod.items.ConcreteSlurry;
 import com.bluetears.transportmod.items.CopperIngot;
+import com.bluetears.transportmod.items.Guiltalium;
 import com.bluetears.transportmod.items.SimpleCircuit;
 import com.bluetears.transportmod.items.SimpleCombustionEngine;
 import com.bluetears.transportmod.items.TestPlacement;
@@ -164,6 +165,7 @@ public class TransportMod {
             ingotTin = new TinIngot(startItemId+11);
             hotAsphalt = new HotAsphalt(startItemId+12);
             condensedAsphalt = new CondensedAsphalt(startItemId+13);
+            guiltalium = new Guiltalium(startItemId+14);
         }
 		
 		public static void registerBlocks(){
@@ -204,6 +206,7 @@ public class TransportMod {
         	LanguageRegistry.addName(condensedAsphalt, "Condensed Asphalt");
         	LanguageRegistry.addName(asphaltRoad, "Asphalt Road");
         	LanguageRegistry.addName(monorailBeam, "Monorail Beam");
+        	LanguageRegistry.addName(guiltalium,"Guiltalium");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.monorailstab", "en_US", "Monorails");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.transportmodtab", "en_US", "Transport Mod");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.boatstab", "en_US", "Boats");
@@ -294,6 +297,7 @@ public class TransportMod {
         public static Item ingotTin;
         public static Item condensedAsphalt;
         public static Item hotAsphalt;
+        public static Item guiltalium;
         
         public static int startBlockId;
         public static int startItemId;
