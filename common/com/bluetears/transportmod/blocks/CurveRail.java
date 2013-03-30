@@ -20,8 +20,6 @@ public CurveRail(int par1, Class class1)
 super(par1, Material.iron);
 setCreativeTab(CreativeTabs.tabTransport);
 setUnlocalizedName("curveRail");
-//setBlockBounds(0.0F, 0.0F, 0.0F, 3.0F, 0.0625F, 3.0F);
-//this.setRequiresSelfNotify(); // absolutely needed
 
 }
 
@@ -89,7 +87,6 @@ return new CurveRailTileEntity();
 
 @Override
 public TileEntity createNewTileEntity(World world) {
-	// TODO Auto-generated method stub
 	return new CurveRailTileEntity();
 }
 
