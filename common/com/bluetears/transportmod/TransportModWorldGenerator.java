@@ -49,7 +49,7 @@ public class TransportModWorldGenerator implements IWorldGenerator{
         	int firstBlockYCoord = random.nextInt(32)+32;
         	int firstBlockZCoord = chunkZ + random.nextInt(16);
         	
-        	(new WorldGenMinable(TransportMod.asphaltOre.blockID, 8)).generate(world, random, firstBlockXCoord, firstBlockYCoord, firstBlockZCoord);
+        	(new WorldGenMinable(TransportMod.oreAsphalt.blockID, 8)).generate(world, random, firstBlockXCoord, firstBlockYCoord, firstBlockZCoord);
         }
 		
 		
@@ -58,7 +58,7 @@ public class TransportModWorldGenerator implements IWorldGenerator{
         	int firstBlockYCoord = random.nextInt(20);
         	int firstBlockZCoord = chunkZ + random.nextInt(16);
         	
-        	(new WorldGenMinable(TransportMod.guiltaliumOre.blockID, 4)).generate(world, random, firstBlockXCoord, firstBlockYCoord, firstBlockZCoord);
+        	(new WorldGenMinable(TransportMod.oreGuiltalium.blockID, 4)).generate(world, random, firstBlockXCoord, firstBlockYCoord, firstBlockZCoord);
         }
 		
 		if(copperOreGen){
@@ -67,7 +67,7 @@ public class TransportModWorldGenerator implements IWorldGenerator{
         	int firstBlockYCoord = random.nextInt(32)+32;
         	int firstBlockZCoord = chunkZ + random.nextInt(16);
         	
-        	(new WorldGenMinable(TransportMod.copperOre.blockID, 8)).generate(world, random, firstBlockXCoord, firstBlockYCoord, firstBlockZCoord);
+        	(new WorldGenMinable(TransportMod.oreCopper.blockID, 8)).generate(world, random, firstBlockXCoord, firstBlockYCoord, firstBlockZCoord);
         }
 		}
 		else{}
@@ -78,7 +78,7 @@ public class TransportModWorldGenerator implements IWorldGenerator{
         	int firstBlockYCoord = random.nextInt(32)+32;
         	int firstBlockZCoord = chunkZ + random.nextInt(16);
         	
-        	(new WorldGenMinable(TransportMod.tinOre.blockID, 6)).generate(world, random, firstBlockXCoord, firstBlockYCoord, firstBlockZCoord);
+        	(new WorldGenMinable(TransportMod.oreTin.blockID, 6)).generate(world, random, firstBlockXCoord, firstBlockYCoord, firstBlockZCoord);
         }
 		
 		}

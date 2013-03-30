@@ -1,8 +1,9 @@
 package com.bluetears.transportmod;
 
 
-import com.bluetears.transportmod.blocks.AsphaltOre;
+
 import com.bluetears.transportmod.blocks.Concrete;
+import com.bluetears.transportmod.blocks.AsphaltOre;
 import com.bluetears.transportmod.blocks.CopperOre;
 import com.bluetears.transportmod.blocks.CurveRail;
 import com.bluetears.transportmod.blocks.CurvedRail;
@@ -55,7 +56,7 @@ public class TransportMod {
         //Calling of the 3 Creative Tabs and Config of them
         public static CreativeTabs transportmodtab = new CreativeTabs("transportmodtab") {
         	public ItemStack getIconItemStack() {
-                	return new ItemStack(guiltaliumOre);
+                	return new ItemStack(oreGuiltalium);
         	}
     	};
         public static CreativeTabs monorailstab = new CreativeTabs("monorailstab") {
@@ -95,8 +96,8 @@ public class TransportMod {
             startItemId = config.getItem("Starting Item Id", 20000).getInt();
 
             // Since this flag is a boolean, we can read it into the variable directly from the config.
-            tinOreGenFlag = config.get(Configuration.CATEGORY_GENERAL, "Tin Ore Generation Flag", false).getBoolean(true);
-            copperOreGenFlag = config.get(Configuration.CATEGORY_GENERAL, "Copper Ore Generation Flag", false).getBoolean(true);
+            oreTinGenFlag = config.get(Configuration.CATEGORY_GENERAL, "Tin Ore Generation Flag", false).getBoolean(true);
+            oreCopperGenFlag = config.get(Configuration.CATEGORY_GENERAL, "Copper Ore Generation Flag", false).getBoolean(true);
             
             
 
@@ -129,10 +130,10 @@ public class TransportMod {
 		
 		public static void addBlocks(){
         	curvedRail = new CurvedRail(startBlockId).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("curvedRail").setHardness(0.5F).setCreativeTab(CreativeTabs.tabTransport);
-            asphaltOre = new AsphaltOre(startBlockId+1, Material.iron);
-            guiltaliumOre = new GuiltaliumOre(startBlockId+2, Material.iron);
-            tinOre = new TinOre(startBlockId+3, Material.iron);
-            copperOre = new CopperOre(startBlockId+4, Material.iron);
+            oreAsphalt = new AsphaltOre(startBlockId+1, Material.iron);
+            oreGuiltalium = new GuiltaliumOre(startBlockId+2, Material.iron);
+            oreTin = new TinOre(startBlockId+3, Material.iron);
+            oreCopper = new CopperOre(startBlockId+4, Material.iron);
             curveRail = new CurveRail(startBlockId+5, CurveRailTileEntity.class);
             concrete = new Concrete(startBlockId+6,Material.iron);
         	
@@ -153,10 +154,10 @@ public class TransportMod {
 		
 		public static void registerBlocks(){
 			GameRegistry.registerBlock(curvedRail, "curvedRail");
-			GameRegistry.registerBlock(asphaltOre, "asphaltore");
-			GameRegistry.registerBlock(tinOre, "tintore");
-			GameRegistry.registerBlock(copperOre, "copperore");
-			GameRegistry.registerBlock(guiltaliumOre, "guiltaliumore");
+			GameRegistry.registerBlock(oreAsphalt, "oreAsphalt");
+			GameRegistry.registerBlock(oreTin, "tintore");
+			GameRegistry.registerBlock(oreCopper, "oreCopper");
+			GameRegistry.registerBlock(oreGuiltalium, "oreGuiltalium");
 			GameRegistry.registerBlock(curveRail, "curveRail");
 			GameRegistry.registerBlock(concrete,"concrete");
 		}
@@ -175,10 +176,10 @@ public class TransportMod {
         	LanguageRegistry.addName(ironBoatHull, "Iron Boat Hull");
         	LanguageRegistry.addName(ironBoat, "Iron Boat");
         	LanguageRegistry.addName(asphalt, "Asphalt");
-        	LanguageRegistry.addName(asphaltOre, "Asphalt Ore");
-        	LanguageRegistry.addName(tinOre, "Tin Ore");
-        	LanguageRegistry.addName(copperOre, "Copper Ore");
-        	LanguageRegistry.addName(guiltaliumOre, "Guiltalium Ore");
+        	LanguageRegistry.addName(oreAsphalt, "Asphalt Ore");
+        	LanguageRegistry.addName(oreTin, "Tin Ore");
+        	LanguageRegistry.addName(oreCopper, "Copper Ore");
+        	LanguageRegistry.addName(oreGuiltalium, "Guiltalium Ore");
         	LanguageRegistry.addName(concrete, "Concrete");
         	LanguageRegistry.addName(concreteSlurry, "Concrete Slurry");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.monorailstab", "en_US", "Monorails");
@@ -216,22 +217,22 @@ public class TransportMod {
 		}
         
         public static void addMinables(){
-        	MinecraftForge.setBlockHarvestLevel(asphaltOre, "pickaxe", 1);
-        	MinecraftForge.setBlockHarvestLevel(guiltaliumOre, "pickaxe", 3);
-        	MinecraftForge.setBlockHarvestLevel(copperOre, "pickaxe", 1);
-        	MinecraftForge.setBlockHarvestLevel(tinOre, "pickaxe", 2);
+        	MinecraftForge.setBlockHarvestLevel(oreAsphalt, "pickaxe", 1);
+        	MinecraftForge.setBlockHarvestLevel(oreGuiltalium, "pickaxe", 3);
+        	MinecraftForge.setBlockHarvestLevel(oreCopper, "pickaxe", 1);
+        	MinecraftForge.setBlockHarvestLevel(oreTin, "pickaxe", 2);
         }
         
         public static void addWorldGens(){
-        	GameRegistry.registerWorldGenerator(new TransportModWorldGenerator(copperOreGenFlag,tinOreGenFlag));
+        	GameRegistry.registerWorldGenerator(new TransportModWorldGenerator(oreCopperGenFlag,oreTinGenFlag));
         }
         
         //Variables for the Blocks used in the mod
         public static Block curvedRail;
-        public static Block asphaltOre;
-        public static Block guiltaliumOre;
-        public static Block tinOre;
-        public static Block copperOre;
+        public static Block oreAsphalt;
+        public static Block oreGuiltalium;
+        public static Block oreTin;
+        public static Block oreCopper;
         public static Block curveRail;
         public static Block concrete;
         
@@ -246,11 +247,13 @@ public class TransportMod {
         public static Item asphalt;
         public static Item testPlacement;
         public static Item concreteSlurry;
+        public static Item ingotCopper;
+        public static Item ingotTin;
         
         public static int startBlockId;
         public static int startItemId;
-        public static boolean tinOreGenFlag;
-        public static boolean copperOreGenFlag;
+        public static boolean oreTinGenFlag;
+        public static boolean oreCopperGenFlag;
         
         }
         	
