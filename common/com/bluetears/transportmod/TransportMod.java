@@ -9,6 +9,7 @@ import com.bluetears.transportmod.blocks.CurveRail;
 import com.bluetears.transportmod.blocks.CurvedRail;
 import com.bluetears.transportmod.blocks.GuiltaliumOre;
 import com.bluetears.transportmod.blocks.TinOre;
+import com.bluetears.transportmod.blocks.monorails.MonorailBeam;
 import com.bluetears.transportmod.blocks.roads.AsphaltRoad;
 import com.bluetears.transportmod.curvedRail.CurveRailTileEntity;
 import com.bluetears.transportmod.curvedRail.RenderCurveRail;
@@ -137,13 +138,14 @@ public class TransportMod {
 		
 		public static void addBlocks(){
         	curvedRail = new CurvedRail(startBlockId).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("curvedRail").setHardness(0.5F).setCreativeTab(CreativeTabs.tabTransport);
-            oreAsphalt = new AsphaltOre(startBlockId+1, Material.iron);
+        	oreAsphalt = new AsphaltOre(startBlockId+1, Material.iron);
             oreGuiltalium = new GuiltaliumOre(startBlockId+2, Material.iron);
             oreTin = new TinOre(startBlockId+3, Material.iron);
             oreCopper = new CopperOre(startBlockId+4, Material.iron);
             curveRail = new CurveRail(startBlockId+5, CurveRailTileEntity.class);
             concrete = new Concrete(startBlockId+6,Material.iron);
             asphaltRoad = new AsphaltRoad(startBlockId+7,Material.iron);
+            monorailBeam = new MonorailBeam(startBlockId+8);
         	
         }
         
@@ -173,6 +175,7 @@ public class TransportMod {
 			GameRegistry.registerBlock(curveRail, "curveRail");
 			GameRegistry.registerBlock(concrete,"concrete");
 			GameRegistry.registerBlock(asphaltRoad,"asphaltRoad");
+			GameRegistry.registerBlock(monorailBeam,"monorailBeam");
 		}
         
         
@@ -200,6 +203,7 @@ public class TransportMod {
         	LanguageRegistry.addName(hotAsphalt,"Hot Asphalt");
         	LanguageRegistry.addName(condensedAsphalt, "Condensed Asphalt");
         	LanguageRegistry.addName(asphaltRoad, "Asphalt Road");
+        	LanguageRegistry.addName(monorailBeam, "Monorail Beam");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.monorailstab", "en_US", "Monorails");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.transportmodtab", "en_US", "Transport Mod");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.boatstab", "en_US", "Boats");
@@ -237,6 +241,9 @@ public class TransportMod {
 			GameRegistry.addRecipe(new ItemStack(concreteSlurry,8),"gsg","scs","gsg",'c',Block.blockClay,'g',Block.gravel,'s', Block.stone );
 			GameRegistry.addRecipe(new ItemStack(condensedAsphalt,8),"ggg","gag","ggg",'a',asphalt,'g',Block.gravel);
 			GameRegistry.addRecipe(new ItemStack(asphaltRoad,8),"ccc","chc","ccc",'h',hotAsphalt,'c',concrete);
+			GameRegistry.addShapelessRecipe(new ItemStack(curvedRail), new ItemStack(Block.rail));
+			GameRegistry.addShapelessRecipe(new ItemStack(Block.rail), new ItemStack(curvedRail));
+			GameRegistry.addRecipe(new ItemStack(monorailBeam,8)," c ","ici"," c ",'i',ingotCopper,'c',concrete);
 		}
         
         public static void addMinables(){
@@ -270,6 +277,7 @@ public class TransportMod {
         public static Block curveRail;
         public static Block concrete;
         public static Block asphaltRoad;
+        public static Block monorailBeam;
         
         //Variables for the items used in the mod
         public static Item advancedCircuit;
