@@ -26,6 +26,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.src.ModLoader;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.Property;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -88,7 +89,22 @@ public class TransportMod {
         
         @PreInit
         public void preInit(FMLPreInitializationEvent event) {
-                // Stub Method
+                
+        	Configuration config = new Configuration(event.getSuggestedConfigurationFile());
+
+            config.load();
+
+            startBlockId = config.getBlock("RandomBlock", 200).getInt();
+
+            startItemId = config.getItem("RandomItem", 20000).getInt();
+            
+           
+            // this could also be:
+            // int someInt = someProperty.getInt();
+            // boolean someBoolean = someProperty.getBoolean(true);
+
+            config.save();
+        	
         }
         
         @Init
@@ -216,6 +232,9 @@ public class TransportMod {
         public static Item ironboat;
         public static Item asphalt;
         public static Item testPlacement;
+        
+        public static int startBlockId;
+        public static int startItemId;
         
         }
         	
