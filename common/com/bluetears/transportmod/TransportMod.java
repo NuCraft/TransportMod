@@ -35,6 +35,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import net.minecraftforge.common.Configuration;
 
 @Mod(modid="TransportMod", name="TransportMod", version="0.0.1")
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
@@ -73,24 +74,10 @@ public class TransportMod {
     	};
         
         //Below is the code for generating all of the blocks
-        public final static Block curvedRail = new CurvedRail(500)
-        .setStepSound(Block.soundGravelFootstep)
-        .setUnlocalizedName("curvedRail").setHardness(0.5F).setCreativeTab(CreativeTabs.tabTransport);
-        public final static Block asphaltore = new AsphaltOre(501, Material.iron);
-        public final static Block guiltaliumore = new GuiltaliumOre(502, Material.iron);
-        public final static Block tinore = new TinOre(503, Material.iron);
-        public final static Block copperore = new CopperOre(504, Material.iron);
-        public final static Block curveRail = new CurveRail(499, CurveRailTileEntity.class);
+        
         
         //Below is the code for generating all of the items
-        public final static Item advancedcircuit = new AdvancedCircuit(5001).setMaxStackSize(64).setUnlocalizedName("advancedCircuit");
-        public final static Item simplecircuit = new SimpleCircuit(5002).setMaxStackSize(64).setUnlocalizedName("simpleCircuit");
-        public final static Item simplecombustionengine = new SimpleCombustionEngine(5003).setMaxStackSize(64).setUnlocalizedName("simpleCombustionEngine");
-        public final static Item anchor = new Anchor(5004).setMaxStackSize(64).setUnlocalizedName("anchor");
-        public final static Item simplepropeller = new SimplePropeller(5005).setMaxStackSize(64).setUnlocalizedName("propeller");
-        public final static Item ironboathull = new IronBoatHull(5006).setMaxStackSize(64).setUnlocalizedName("ironboathull");
-        public final static Item ironboat = new IronBoat(5007).setUnlocalizedName("ironboat");
-        public final static Item asphalt = new Asphalt(5008).setUnlocalizedName("asphalt").setMaxStackSize(64);
+        
         
         // Says where the client and server 'proxy' code is loaded.
         @SidedProxy(clientSide="com.bluetears.transportmod.client.ClientProxy", serverSide="com.bluetears.transportmod.CommonProxy")
@@ -105,10 +92,12 @@ public class TransportMod {
         
         public void load(FMLInitializationEvent event) {
         	
+        	addBlocks();
+        	addItems();
         	addWorldGens();
         	addNames();
         	addCrafting();
-        	addBlocks();
+        	registerBlocks();
 
             
                 proxy.registerRenderers();
@@ -121,6 +110,29 @@ public class TransportMod {
         }
 		
 		public static void addBlocks(){
+        	curvedRail = new CurvedRail(500)
+            .setStepSound(Block.soundGravelFootstep)
+            .setUnlocalizedName("curvedRail").setHardness(0.5F).setCreativeTab(CreativeTabs.tabTransport);
+            asphaltore = new AsphaltOre(501, Material.iron);
+            guiltaliumore = new GuiltaliumOre(502, Material.iron);
+            tinore = new TinOre(503, Material.iron);
+            copperore = new CopperOre(504, Material.iron);
+            curveRail = new CurveRail(499, CurveRailTileEntity.class);
+        	
+        }
+        
+        public static void addItems(){
+        	advancedcircuit = new AdvancedCircuit(5001).setMaxStackSize(64).setUnlocalizedName("advancedCircuit");
+            simplecircuit = new SimpleCircuit(5002).setMaxStackSize(64).setUnlocalizedName("simpleCircuit");
+            simplecombustionengine = new SimpleCombustionEngine(5003).setMaxStackSize(64).setUnlocalizedName("simpleCombustionEngine");
+            anchor = new Anchor(5004).setMaxStackSize(64).setUnlocalizedName("anchor");
+            simplepropeller = new SimplePropeller(5005).setMaxStackSize(64).setUnlocalizedName("propeller");
+            ironboathull = new IronBoatHull(5006).setMaxStackSize(64).setUnlocalizedName("ironboathull");
+            ironboat = new IronBoat(5007).setUnlocalizedName("ironboat");
+            asphalt = new Asphalt(5008).setUnlocalizedName("asphalt").setMaxStackSize(64);
+        }
+		
+		public static void registerBlocks(){
 			GameRegistry.registerBlock(curvedRail, "curvedRail");
 			GameRegistry.registerBlock(asphaltore, "asphaltore");
 			GameRegistry.registerBlock(tinore, "tintore");
@@ -178,7 +190,27 @@ public class TransportMod {
         public static void addWorldGens(){
         	GameRegistry.registerWorldGenerator(new TransportModWorldGenerator());
         }
-        	
+        
+        //Variables for the Blocks used in the mod
+        public static Block curvedRail;
+        public static Block asphaltore;
+        public static Block guiltaliumore;
+        public static Block tinore;
+        public static Block copperore;
+        public static Block curveRail;
+        
+        //Variables for the items used in the mod
+        public static Item advancedcircuit;
+        public static Item simplecircuit;
+        public static Item simplecombustionengine;
+        public static Item anchor;
+        public static Item simplepropeller;
+        public static Item ironboathull;
+        public static Item ironboat;
+        public static Item asphalt;
+        
         }
+        	
+        
 
 
