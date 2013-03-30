@@ -29,7 +29,7 @@ if(tile.worldObj != null) // to tell the world that your object is placed.
 {
 i =(tile.worldObj.getBlockMetadata(tile.xCoord, tile.yCoord, tile.zCoord)); // to tell the game it needs to pick up metadata from your block
 }
-bindTextureByName("attempt2.png");
+bindTextureByName("S:/Mod Stuff/Transport Mod/source/common/com/bluetears/transportmod/curvedRail/attempt2.png");
 //for the int i = 0 which i mentioned above. the 0 will take over the texture from case 0, and have that texture render in your inventory. I unfortunately do not know yet how to make your block have more then one texture in your inventory. the blocks rendered in the world will have the allocated texture, the ones in the inventory wont. this will be updated as soon as I or anyone else founds the solution
 
 GL11.glPushMatrix(); //start
