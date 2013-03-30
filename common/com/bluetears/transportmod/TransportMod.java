@@ -12,6 +12,7 @@ import com.bluetears.transportmod.curvedRail.CurveRailTileEntity;
 import com.bluetears.transportmod.curvedRail.RenderCurveRail;
 import com.bluetears.transportmod.items.AdvancedCircuit;
 import com.bluetears.transportmod.items.Asphalt;
+import com.bluetears.transportmod.items.ConcreteSlurry;
 import com.bluetears.transportmod.items.SimpleCircuit;
 import com.bluetears.transportmod.items.SimpleCombustionEngine;
 import com.bluetears.transportmod.items.TestPlacement;
@@ -147,6 +148,7 @@ public class TransportMod {
             ironBoat = new IronBoat(startItemId+6).setUnlocalizedName("ironboat");
             asphalt = new Asphalt(startItemId+7).setUnlocalizedName("asphalt").setMaxStackSize(64);
             testPlacement = new TestPlacement(startItemId+8, curveRail).setUnlocalizedName("placementTest");
+            concreteSlurry = new ConcreteSlurry(startItemId+9).setUnlocalizedName("concreteSlurry");
         }
 		
 		public static void registerBlocks(){
@@ -233,6 +235,7 @@ public class TransportMod {
         public static Item ironBoat;
         public static Item asphalt;
         public static Item testPlacement;
+        public static Item concreteSlurry;
         
         public static int startBlockId;
         public static int startItemId;
