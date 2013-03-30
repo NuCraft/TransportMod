@@ -233,10 +233,10 @@ public class TransportMod {
         	GameRegistry.addRecipe(new ItemStack(ironBoatHull),"i i","iii","bbb",'i',Item.ingotIron,'b',new ItemStack(Item.potion,0));
 			GameRegistry.addRecipe(new ItemStack(anchor)," i "," i ","iii",'i',Item.ingotIron);
 			GameRegistry.addRecipe(new ItemStack(simplePropeller)," i "," i ","i i",'i',Item.ingotIron);
-			GameRegistry.addRecipe(new ItemStack(concreteSlurry),"sgs","gcg","sgs",'c',Block.blockClay,'g',Block.gravel,'s', Block.stone );
-			GameRegistry.addRecipe(new ItemStack(concreteSlurry),"gsg","scs","gsg",'c',Block.blockClay,'g',Block.gravel,'s', Block.stone );
-			GameRegistry.addRecipe(new ItemStack(condensedAsphalt),"ggg","gag","ggg",'a',asphalt,'g',Block.gravel);
-			GameRegistry.addRecipe(new ItemStack(asphaltRoad),"ccc","chc","ccc",'h',hotAsphalt,'c',concrete);
+			GameRegistry.addRecipe(new ItemStack(concreteSlurry,8),"sgs","gcg","sgs",'c',Block.blockClay,'g',Block.gravel,'s', Block.stone );
+			GameRegistry.addRecipe(new ItemStack(concreteSlurry,8),"gsg","scs","gsg",'c',Block.blockClay,'g',Block.gravel,'s', Block.stone );
+			GameRegistry.addRecipe(new ItemStack(condensedAsphalt,8),"ggg","gag","ggg",'a',asphalt,'g',Block.gravel);
+			GameRegistry.addRecipe(new ItemStack(asphaltRoad,8),"ccc","chc","ccc",'h',hotAsphalt,'c',concrete);
 		}
         
         public static void addMinables(){
