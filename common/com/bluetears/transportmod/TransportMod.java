@@ -14,9 +14,11 @@ import com.bluetears.transportmod.curvedRail.RenderCurveRail;
 import com.bluetears.transportmod.items.AdvancedCircuit;
 import com.bluetears.transportmod.items.Asphalt;
 import com.bluetears.transportmod.items.ConcreteSlurry;
+import com.bluetears.transportmod.items.CopperIngot;
 import com.bluetears.transportmod.items.SimpleCircuit;
 import com.bluetears.transportmod.items.SimpleCombustionEngine;
 import com.bluetears.transportmod.items.TestPlacement;
+import com.bluetears.transportmod.items.TinIngot;
 import com.bluetears.transportmod.items.boatparts.Anchor;
 import com.bluetears.transportmod.items.boatparts.IronBoat;
 import com.bluetears.transportmod.items.boatparts.IronBoatHull;
@@ -152,6 +154,8 @@ public class TransportMod {
             asphalt = new Asphalt(startItemId+7);
             testPlacement = new TestPlacement(startItemId+8, curveRail).setUnlocalizedName("placementTest");
             concreteSlurry = new ConcreteSlurry(startItemId+9);
+            ingotCopper = new CopperIngot(startItemId+10);
+            ingotTin = new TinIngot(startItemId+11);
         }
 		
 		public static void registerBlocks(){
@@ -184,6 +188,8 @@ public class TransportMod {
         	LanguageRegistry.addName(oreGuiltalium, "Guiltalium Ore");
         	LanguageRegistry.addName(concrete, "Concrete");
         	LanguageRegistry.addName(concreteSlurry, "Concrete Slurry");
+        	LanguageRegistry.addName(ingotTin,"Tin Ingot");
+        	LanguageRegistry.addName(ingotCopper,"Copper Ingot");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.monorailstab", "en_US", "Monorails");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.transportmodtab", "en_US", "Transport Mod");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.boatstab", "en_US", "Boats");
