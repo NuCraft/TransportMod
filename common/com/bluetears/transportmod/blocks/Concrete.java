@@ -7,7 +7,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 
 public class Concrete extends Block {
-
+	public int blockId;
+	
         public Concrete (int id, Material iron) {
                 super(id, iron);
                 setHardness(4.0F); // 33% harder than diamond
@@ -21,6 +22,7 @@ public class Concrete extends Block {
                  this.blockIcon = par1IconRegister.registerIcon("transportmod:concrete");
         }
 
+        
         
         
 }

@@ -179,6 +179,8 @@ public class TransportMod {
         	LanguageRegistry.addName(tinOre, "Tin Ore");
         	LanguageRegistry.addName(copperOre, "Copper Ore");
         	LanguageRegistry.addName(guiltaliumOre, "Guiltalium Ore");
+        	LanguageRegistry.addName(concrete, "Concrete");
+        	LanguageRegistry.addName(concreteSlurry, "Concrete Slurry");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.monorailstab", "en_US", "Monorails");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.transportmodtab", "en_US", "Transport Mod");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.boatstab", "en_US", "Boats");
@@ -193,7 +195,11 @@ public class TransportMod {
         }
         
         public static void addCrafting(){
-
+        	
+        	//Furnace Recipes
+        	GameRegistry.addSmelting(concreteSlurry.itemID, new ItemStack(concrete), 0.1f);
+        	
+        	//Crafting Recipes
         	GameRegistry.addRecipe(new ItemStack(simpleCircuit), "rqr", "ici","sss", 
         	        'r',Item.redstone, 'q',Item.field_94583_ca,'s',Block.stone,'i',Item.ingotIron,'c',new ItemStack(Item.dyePowder,1,2));
         	GameRegistry.addRecipe(new ItemStack(advancedCircuit), "rqr", "gig","sss", 
