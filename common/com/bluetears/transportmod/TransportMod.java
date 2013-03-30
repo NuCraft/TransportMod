@@ -53,7 +53,7 @@ public class TransportMod {
         //Calling of the 3 Creative Tabs and Config of them
         public static CreativeTabs transportmodtab = new CreativeTabs("transportmodtab") {
         	public ItemStack getIconItemStack() {
-                	return new ItemStack(guiltaliumore);
+                	return new ItemStack(guiltaliumOre);
         	}
     	};
         public static CreativeTabs monorailstab = new CreativeTabs("monorailstab") {
@@ -73,7 +73,7 @@ public class TransportMod {
         };
         public static CreativeTabs roadstab = new CreativeTabs("roadstab") {
         	public ItemStack getIconItemStack() {
-                	return new ItemStack(Item.eyeOfEnder, 1, 0);
+                	return new ItemStack(concrete, 1, 0);
         	}
     	};
         
@@ -127,32 +127,32 @@ public class TransportMod {
 		
 		public static void addBlocks(){
         	curvedRail = new CurvedRail(startBlockId).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("curvedRail").setHardness(0.5F).setCreativeTab(CreativeTabs.tabTransport);
-            asphaltore = new AsphaltOre(startBlockId+1, Material.iron);
-            guiltaliumore = new GuiltaliumOre(startBlockId+2, Material.iron);
-            tinore = new TinOre(startBlockId+3, Material.iron);
-            copperore = new CopperOre(startBlockId+4, Material.iron);
+            asphaltOre = new AsphaltOre(startBlockId+1, Material.iron);
+            guiltaliumOre = new GuiltaliumOre(startBlockId+2, Material.iron);
+            tinOre = new TinOre(startBlockId+3, Material.iron);
+            copperOre = new CopperOre(startBlockId+4, Material.iron);
             curveRail = new CurveRail(startBlockId+5, CurveRailTileEntity.class);
         	
         }
         
         public static void addItems(){
-        	advancedcircuit = new AdvancedCircuit(startItemId).setMaxStackSize(64).setUnlocalizedName("advancedCircuit");
-            simplecircuit = new SimpleCircuit(startItemId+1).setMaxStackSize(64).setUnlocalizedName("simpleCircuit");
-            simplecombustionengine = new SimpleCombustionEngine(startItemId+2).setMaxStackSize(64).setUnlocalizedName("simpleCombustionEngine");
+        	advancedCircuit = new AdvancedCircuit(startItemId).setMaxStackSize(64).setUnlocalizedName("advancedCircuit");
+            simpleCircuit = new SimpleCircuit(startItemId+1).setMaxStackSize(64).setUnlocalizedName("simpleCircuit");
+            simpleCombustionEngine = new SimpleCombustionEngine(startItemId+2).setMaxStackSize(64).setUnlocalizedName("simpleCombustionEngine");
             anchor = new Anchor(startItemId+3).setMaxStackSize(64).setUnlocalizedName("anchor");
-            simplepropeller = new SimplePropeller(startItemId+4).setMaxStackSize(64).setUnlocalizedName("propeller");
-            ironboathull = new IronBoatHull(startItemId+5).setMaxStackSize(64).setUnlocalizedName("ironboathull");
-            ironboat = new IronBoat(startItemId+6).setUnlocalizedName("ironboat");
+            simplePropeller = new SimplePropeller(startItemId+4).setMaxStackSize(64).setUnlocalizedName("propeller");
+            ironBoatHull = new IronBoatHull(startItemId+5).setMaxStackSize(64).setUnlocalizedName("ironboathull");
+            ironBoat = new IronBoat(startItemId+6).setUnlocalizedName("ironboat");
             asphalt = new Asphalt(startItemId+7).setUnlocalizedName("asphalt").setMaxStackSize(64);
             testPlacement = new TestPlacement(startItemId+8, curveRail).setUnlocalizedName("placementTest");
         }
 		
 		public static void registerBlocks(){
 			GameRegistry.registerBlock(curvedRail, "curvedRail");
-			GameRegistry.registerBlock(asphaltore, "asphaltore");
-			GameRegistry.registerBlock(tinore, "tintore");
-			GameRegistry.registerBlock(copperore, "copperore");
-			GameRegistry.registerBlock(guiltaliumore, "guiltaliumore");
+			GameRegistry.registerBlock(asphaltOre, "asphaltore");
+			GameRegistry.registerBlock(tinOre, "tintore");
+			GameRegistry.registerBlock(copperOre, "copperore");
+			GameRegistry.registerBlock(guiltaliumOre, "guiltaliumore");
 			GameRegistry.registerBlock(curveRail, "curveRail");
 		}
         
@@ -162,18 +162,18 @@ public class TransportMod {
         	//Watch your language!
         	LanguageRegistry.addName(curveRail, "3x3 Curve");
         	LanguageRegistry.addName(curvedRail, "Curved Rail");
-        	LanguageRegistry.addName(advancedcircuit, "Advanced Circuit");
-        	LanguageRegistry.addName(simplecircuit, "Simple Circuit");
-        	LanguageRegistry.addName(simplecombustionengine, "Simple Combustion Engine");
+        	LanguageRegistry.addName(advancedCircuit, "Advanced Circuit");
+        	LanguageRegistry.addName(simpleCircuit, "Simple Circuit");
+        	LanguageRegistry.addName(simpleCombustionEngine, "Simple Combustion Engine");
         	LanguageRegistry.addName(anchor, "Anchor");
-        	LanguageRegistry.addName(simplepropeller, "Simple Propeller");
-        	LanguageRegistry.addName(ironboathull, "Iron Boat Hull");
-        	LanguageRegistry.addName(ironboat, "Iron Boat");
+        	LanguageRegistry.addName(simplePropeller, "Simple Propeller");
+        	LanguageRegistry.addName(ironBoatHull, "Iron Boat Hull");
+        	LanguageRegistry.addName(ironBoat, "Iron Boat");
         	LanguageRegistry.addName(asphalt, "Asphalt");
-        	LanguageRegistry.addName(asphaltore, "Asphalt Ore");
-        	LanguageRegistry.addName(tinore, "Tin Ore");
-        	LanguageRegistry.addName(copperore, "Copper Ore");
-        	LanguageRegistry.addName(guiltaliumore, "Guiltalium Ore");
+        	LanguageRegistry.addName(asphaltOre, "Asphalt Ore");
+        	LanguageRegistry.addName(tinOre, "Tin Ore");
+        	LanguageRegistry.addName(copperOre, "Copper Ore");
+        	LanguageRegistry.addName(guiltaliumOre, "Guiltalium Ore");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.monorailstab", "en_US", "Monorails");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.transportmodtab", "en_US", "Transport Mod");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.boatstab", "en_US", "Boats");
@@ -187,24 +187,24 @@ public class TransportMod {
         
         public static void addCrafting(){
 
-        	GameRegistry.addRecipe(new ItemStack(simplecircuit), "rqr", "ici","sss", 
+        	GameRegistry.addRecipe(new ItemStack(simpleCircuit), "rqr", "ici","sss", 
         	        'r',Item.redstone, 'q',Item.field_94583_ca,'s',Block.stone,'i',Item.ingotIron,'c',new ItemStack(Item.dyePowder,1,2));
-        	GameRegistry.addRecipe(new ItemStack(advancedcircuit), "rqr", "gig","sss", 
+        	GameRegistry.addRecipe(new ItemStack(advancedCircuit), "rqr", "gig","sss", 
         	        'r',Item.redstone, 'q',Item.field_94583_ca,'s',Item.ingotIron,'g',Item.ingotGold,'i',new ItemStack(Item.dyePowder,1,0));
-        	GameRegistry.addRecipe(new ItemStack(advancedcircuit), " a ", "gsg"," i ", 
-        	        's',Item.ingotIron,'g',Item.ingotGold,'i',new ItemStack(Item.dyePowder,1,0),'a',simplecircuit);
-        	GameRegistry.addRecipe(new ItemStack(simplecombustionengine), "ipi", "i i","iii", 
+        	GameRegistry.addRecipe(new ItemStack(advancedCircuit), " a ", "gsg"," i ", 
+        	        's',Item.ingotIron,'g',Item.ingotGold,'i',new ItemStack(Item.dyePowder,1,0),'a',simpleCircuit);
+        	GameRegistry.addRecipe(new ItemStack(simpleCombustionEngine), "ipi", "i i","iii", 
         	        'i',Item.ingotIron,'p',Block.pistonBase);
-        	GameRegistry.addRecipe(new ItemStack(ironboathull),"i i","iii","bbb",'i',Item.ingotIron,'b',new ItemStack(Item.potion,0));
+        	GameRegistry.addRecipe(new ItemStack(ironBoatHull),"i i","iii","bbb",'i',Item.ingotIron,'b',new ItemStack(Item.potion,0));
 			GameRegistry.addRecipe(new ItemStack(anchor)," i "," i ","iii",'i',Item.ingotIron);
-			GameRegistry.addRecipe(new ItemStack(simplepropeller)," i "," i ","i i",'i',Item.ingotIron);
+			GameRegistry.addRecipe(new ItemStack(simplePropeller)," i "," i ","i i",'i',Item.ingotIron);
 		}
         
         public static void addMinables(){
-        	MinecraftForge.setBlockHarvestLevel(asphaltore, "pickaxe", 1);
-        	MinecraftForge.setBlockHarvestLevel(guiltaliumore, "pickaxe", 3);
-        	MinecraftForge.setBlockHarvestLevel(copperore, "pickaxe", 1);
-        	MinecraftForge.setBlockHarvestLevel(tinore, "pickaxe", 2);
+        	MinecraftForge.setBlockHarvestLevel(asphaltOre, "pickaxe", 1);
+        	MinecraftForge.setBlockHarvestLevel(guiltaliumOre, "pickaxe", 3);
+        	MinecraftForge.setBlockHarvestLevel(copperOre, "pickaxe", 1);
+        	MinecraftForge.setBlockHarvestLevel(tinOre, "pickaxe", 2);
         }
         
         public static void addWorldGens(){
@@ -213,20 +213,21 @@ public class TransportMod {
         
         //Variables for the Blocks used in the mod
         public static Block curvedRail;
-        public static Block asphaltore;
-        public static Block guiltaliumore;
-        public static Block tinore;
-        public static Block copperore;
+        public static Block asphaltOre;
+        public static Block guiltaliumOre;
+        public static Block tinOre;
+        public static Block copperOre;
         public static Block curveRail;
+        public static Block concrete;
         
         //Variables for the items used in the mod
-        public static Item advancedcircuit;
-        public static Item simplecircuit;
-        public static Item simplecombustionengine;
+        public static Item advancedCircuit;
+        public static Item simpleCircuit;
+        public static Item simpleCombustionEngine;
         public static Item anchor;
-        public static Item simplepropeller;
-        public static Item ironboathull;
-        public static Item ironboat;
+        public static Item simplePropeller;
+        public static Item ironBoatHull;
+        public static Item ironBoat;
         public static Item asphalt;
         public static Item testPlacement;
         
