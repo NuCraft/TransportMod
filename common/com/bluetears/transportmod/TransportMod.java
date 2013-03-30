@@ -26,7 +26,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.src.ModLoader;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.Property;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -90,20 +89,6 @@ public class TransportMod {
         @PreInit
         public void preInit(FMLPreInitializationEvent event) {
                 
-        	Configuration config = new Configuration(event.getSuggestedConfigurationFile());
-
-            config.load();
-
-            startBlockId = config.getBlock("RandomBlock", 200).getInt();
-
-            startItemId = config.getItem("RandomItem", 20000).getInt();
-            
-           
-            // this could also be:
-            // int someInt = someProperty.getInt();
-            // boolean someBoolean = someProperty.getBoolean(true);
-
-            config.save();
         	
         }
         
@@ -129,27 +114,25 @@ public class TransportMod {
         }
 		
 		public static void addBlocks(){
-        	curvedRail = new CurvedRail(500)
-            .setStepSound(Block.soundGravelFootstep)
-            .setUnlocalizedName("curvedRail").setHardness(0.5F).setCreativeTab(CreativeTabs.tabTransport);
-            asphaltore = new AsphaltOre(501, Material.iron);
-            guiltaliumore = new GuiltaliumOre(502, Material.iron);
-            tinore = new TinOre(503, Material.iron);
-            copperore = new CopperOre(504, Material.iron);
-            curveRail = new CurveRail(499, CurveRailTileEntity.class);
+        	curvedRail = new CurvedRail(startBlockId).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("curvedRail").setHardness(0.5F).setCreativeTab(CreativeTabs.tabTransport);
+            asphaltore = new AsphaltOre(startBlockId+1, Material.iron);
+            guiltaliumore = new GuiltaliumOre(startBlockId+2, Material.iron);
+            tinore = new TinOre(startBlockId+3, Material.iron);
+            copperore = new CopperOre(startBlockId+4, Material.iron);
+            curveRail = new CurveRail(startBlockId+5, CurveRailTileEntity.class);
         	
         }
         
         public static void addItems(){
-        	advancedcircuit = new AdvancedCircuit(5001).setMaxStackSize(64).setUnlocalizedName("advancedCircuit");
-            simplecircuit = new SimpleCircuit(5002).setMaxStackSize(64).setUnlocalizedName("simpleCircuit");
-            simplecombustionengine = new SimpleCombustionEngine(5003).setMaxStackSize(64).setUnlocalizedName("simpleCombustionEngine");
-            anchor = new Anchor(5004).setMaxStackSize(64).setUnlocalizedName("anchor");
-            simplepropeller = new SimplePropeller(5005).setMaxStackSize(64).setUnlocalizedName("propeller");
-            ironboathull = new IronBoatHull(5006).setMaxStackSize(64).setUnlocalizedName("ironboathull");
-            ironboat = new IronBoat(5007).setUnlocalizedName("ironboat");
-            asphalt = new Asphalt(5008).setUnlocalizedName("asphalt").setMaxStackSize(64);
-            testPlacement = new TestPlacement(5009, curveRail).setUnlocalizedName("placementTest");
+        	advancedcircuit = new AdvancedCircuit(startItemId).setMaxStackSize(64).setUnlocalizedName("advancedCircuit");
+            simplecircuit = new SimpleCircuit(startItemId+1).setMaxStackSize(64).setUnlocalizedName("simpleCircuit");
+            simplecombustionengine = new SimpleCombustionEngine(startItemId+2).setMaxStackSize(64).setUnlocalizedName("simpleCombustionEngine");
+            anchor = new Anchor(startItemId+3).setMaxStackSize(64).setUnlocalizedName("anchor");
+            simplepropeller = new SimplePropeller(startItemId+4).setMaxStackSize(64).setUnlocalizedName("propeller");
+            ironboathull = new IronBoatHull(startItemId+5).setMaxStackSize(64).setUnlocalizedName("ironboathull");
+            ironboat = new IronBoat(startItemId+6).setUnlocalizedName("ironboat");
+            asphalt = new Asphalt(startItemId+7).setUnlocalizedName("asphalt").setMaxStackSize(64);
+            testPlacement = new TestPlacement(startItemId+8, curveRail).setUnlocalizedName("placementTest");
         }
 		
 		public static void registerBlocks(){
@@ -233,8 +216,8 @@ public class TransportMod {
         public static Item asphalt;
         public static Item testPlacement;
         
-        public static int startBlockId;
-        public static int startItemId;
+        public static int startBlockId = 500;
+        public static int startItemId = 5000;
         
         }
         	
