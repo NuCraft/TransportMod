@@ -13,8 +13,8 @@ public class TransportModWorldGenerator implements IWorldGenerator{
 	private boolean tinOreGen;
 	
 	TransportModWorldGenerator(boolean copperOreGen,boolean tinOreGen){
-		copperOreGen = this.copperOreGen;
-		tinOreGen = this.tinOreGen;
+		this.copperOreGen = copperOreGen;
+		this.tinOreGen = tinOreGen;
 		
 	}
 	
@@ -61,7 +61,7 @@ public class TransportModWorldGenerator implements IWorldGenerator{
         	(new WorldGenMinable(TransportMod.oreGuiltalium.blockID, 4)).generate(world, random, firstBlockXCoord, firstBlockYCoord, firstBlockZCoord);
         }
 		
-		if(copperOreGen){
+		if(copperOreGen == true){
 		for(int k = 0; k < 20; k++){
         	int firstBlockXCoord = chunkX + random.nextInt(16);
         	int firstBlockYCoord = random.nextInt(32)+32;
@@ -72,7 +72,7 @@ public class TransportModWorldGenerator implements IWorldGenerator{
 		}
 		else{}
 		
-		if(tinOreGen){
+		if(tinOreGen == true){
 		for(int k = 0; k < 20; k++){
         	int firstBlockXCoord = chunkX + random.nextInt(16);
         	int firstBlockYCoord = random.nextInt(32)+32;

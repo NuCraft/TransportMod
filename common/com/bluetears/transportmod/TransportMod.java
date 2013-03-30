@@ -97,13 +97,13 @@ public class TransportMod {
 
             config.load();
 
-            startBlockId = config.getBlock("Starting Block Id", 200).getInt();
+            startBlockId = config.getBlock("Starting Block Id", 500).getInt();
 
             startItemId = config.getItem("Starting Item Id", 20000).getInt();
 
             // Since this flag is a boolean, we can read it into the variable directly from the config.
-            oreTinGenFlag = config.get(Configuration.CATEGORY_GENERAL, "Tin Ore Generation Flag", false).getBoolean(true);
-            oreCopperGenFlag = config.get(Configuration.CATEGORY_GENERAL, "Copper Ore Generation Flag", false).getBoolean(true);
+            oreTinGenFlag = config.get(Configuration.CATEGORY_GENERAL, "Tin Ore Generation Flag", false).getBoolean(false);
+            oreCopperGenFlag = config.get(Configuration.CATEGORY_GENERAL, "Copper Ore Generation Flag", false).getBoolean(false);
             
             
 
