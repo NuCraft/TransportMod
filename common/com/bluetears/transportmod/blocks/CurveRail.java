@@ -3,6 +3,7 @@ package com.bluetears.transportmod.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -20,6 +21,7 @@ public CurveRail(int par1) {
 	super(par1, Material.iron);
 setUnlocalizedName("curveRail");
 setLightOpacity(0);
+setCreativeTab(CreativeTabs.tabTransport);
 }
 
 @Override

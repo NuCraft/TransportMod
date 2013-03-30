@@ -2,6 +2,7 @@ package com.bluetears.transportmod;
 
 
 import com.bluetears.transportmod.blocks.AsphaltOre;
+import com.bluetears.transportmod.blocks.CurveRail;
 import com.bluetears.transportmod.blocks.CurvedRail;
 import com.bluetears.transportmod.items.AdvancedCircuit;
 import com.bluetears.transportmod.items.Asphalt;
@@ -72,6 +73,7 @@ public class TransportMod {
         .setStepSound(Block.soundGravelFootstep)
         .setUnlocalizedName("curvedRail").setHardness(0.5F).setCreativeTab(CreativeTabs.tabTransport);
         public final static Block asphaltore = new AsphaltOre(501, Material.iron);
+        public final static Block curveRail = new CurveRail(499);
         
         //Below is the code for generating all of the items
         public final static Item advancedcircuit = new AdvancedCircuit(5001).setMaxStackSize(64).setUnlocalizedName("advancedCircuit");
@@ -114,6 +116,7 @@ public class TransportMod {
 		public static void addBlocks(){
 			GameRegistry.registerBlock(curvedRail, "curvedRail");
 			GameRegistry.registerBlock(asphaltore, "asphaltore");
+			GameRegistry.registerBlock(curveRail, "curveRail");
 		}
         
         
