@@ -77,11 +77,6 @@ public class TransportMod {
         	}
     	};
         
-        //Below is the code for generating all of the blocks
-        
-        
-        //Below is the code for generating all of the items
-        
         
         // Says where the client and server 'proxy' code is loaded.
         @SidedProxy(clientSide="com.bluetears.transportmod.client.ClientProxy", serverSide="com.bluetears.transportmod.CommonProxy")
@@ -93,9 +88,9 @@ public class TransportMod {
 
             config.load();
 
-            startBlockId = config.getBlock("RandomBlock", 200).getInt();
+            startBlockId = config.getBlock("Starting Block Id", 200).getInt();
 
-            startItemId = config.getItem("RandomItem", 20000).getInt();
+            startItemId = config.getItem("Starting Item Id", 20000).getInt();
 
             // Since this flag is a boolean, we can read it into the variable directly from the config.
             someConfigFlag = config.get(Configuration.CATEGORY_GENERAL, "SomeConfigFlag", false).getBoolean(false);
