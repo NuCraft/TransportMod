@@ -1,20 +1,14 @@
 package com.bluetears.transportmod.blocks;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 import com.bluetears.transportmod.curvedRail.CurveRailTileEntity;
-import com.bluetears.transportmod.curvedRail.Helper;
-import com.bluetears.transportmod.curvedRail.RenderCurveRail;
 
 public class CurveRail extends BlockContainer {
 
