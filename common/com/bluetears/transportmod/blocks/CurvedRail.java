@@ -20,6 +20,8 @@ public class CurvedRail extends BlockRail {
         	setStepSound(Block.soundStoneFootstep);
                 
         }
+
+        
    
         public void registerIcons(IconRegister par1IconRegister)
         {

@@ -2,6 +2,7 @@ package com.bluetears.transportmod.blocks;
 
 import java.util.Random;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -23,8 +24,30 @@ public CurveRail(int par1, @SuppressWarnings("rawtypes") Class class1)
 super(par1, Material.iron);
 setCreativeTab(CreativeTabs.tabTransport);
 setUnlocalizedName("curveRail");
-setHardness(0.4F);
+setHardness(0.5F);
+setStepSound(Block.soundStoneFootstep);
+setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
 }
+
+@Override
+public int idDropped(int par1, Random random, int par2) {
+    return TransportMod.curvedRail.blockID;
+    
+}
+
+@Override
+public int quantityDropped(Random par1Random)
+{
+    return 5;
+   
+}
+
+@Override
+public void onBlockHarvested(World par1World, int par2, int par3, int par4, int par5, EntityPlayer par6EntityPlayer)
+{
+	super.onBlockHarvested(par1World, par2, par3, par4, par5, par6EntityPlayer);
+}
+
 
 @Override
 public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int x, int y, int z)
@@ -45,6 +68,7 @@ public void registerIcons(IconRegister par1IconRegister)
 
 
 public boolean isOpaqueCube() {
+	
 return false;
 } // make it opaque cube, or else you will be able to see trough the world !
 public boolean renderAsNormalBlock() {
@@ -112,15 +136,6 @@ public void onBlockAdded(World par1World, int par2, int par3, int par4)
 		}
 }
 
-public int idDropped(int par1, Random random, int par2) {
-    return TransportMod.curvedRail.blockID;
-}
-
-@Override
-public int quantityDropped(Random par1Random)
-{
-    return 5;
-}
 
 
 
