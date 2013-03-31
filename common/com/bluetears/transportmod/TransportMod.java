@@ -247,6 +247,7 @@ public class TransportMod {
 			GameRegistry.addShapelessRecipe(new ItemStack(curvedRail), new ItemStack(Block.rail));
 			GameRegistry.addShapelessRecipe(new ItemStack(Block.rail), new ItemStack(curvedRail));
 			GameRegistry.addRecipe(new ItemStack(monorailBeam,8)," c ","ici"," c ",'i',ingotCopper,'c',concrete);
+			GameRegistry.addRecipe(new ItemStack(ironBoat),"ahm","  d","  p",'d',simpleDriveShaft,'m',simpleCombustionEngine,'a',anchor,'h',ironBoatHull,'p',simplePropeller);
 		}
         
         public static void addMinables(){
