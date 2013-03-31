@@ -3,14 +3,19 @@ package com.bluetears.transportmod.blocks;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockBaseRailLogic;
 import net.minecraft.block.BlockContainer;
+import net.minecraft.block.BlockRail;
+import net.minecraft.block.BlockRailBase;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import com.bluetears.transportmod.TransportMod;
@@ -133,8 +138,78 @@ public void onBlockAdded(World par1World, int par2, int par3, int par4)
 			}
 			x++;
 		}
+	
 }
+	
+///ATTEMPT TO MAKE IT A RAIL #1
+	
+    public static final boolean isRailBlockAt(World par0World, int par1, int par2, int par3)
+    {
+        return isRailBlock(par0World.getBlockId(par1, par2, par3));
+    }
 
+    /**
+     * Return true if the parameter is a blockID for a valid rail block (current is rail, powered or detector).
+     */
+    public static final boolean isRailBlock(int par0)
+    {
+        return par0 == TransportMod.curveRail.blockID;
+    }
+	
+	   public int getBasicRailMetadata(IBlockAccess world, EntityMinecart cart, int x, int y, int z)
+	    {
+	        int meta = world.getBlockMetadata(x, y, z);
+	        return meta;
+	    }
+	   
+	   public boolean isPowered()
+	    {
+	        return false;
+	    }
+	   
+	    public boolean canPlaceBlockAt(World par1World, int par2, int par3, int par4)
+	    {
+	        return par1World.doesBlockHaveSolidTopSurface(par2, par3 - 1, par4);
+	    }
+	    
+	    
+	    protected void func_94358_a(World par1World, int par2, int par3, int par4, int par5, int par6, int par7)
+	    {
+	        if (par7 > 0 && Block.blocksList[par7].canProvidePower() && (new BlockBaseRailLogic(new CurvedRail(par2), par1World, par2, par3, par4)).func_94505_a() == 3)
+	        {
+	            this.refreshTrackShape(par1World, par2, par3, par4, false);
+	        }
+	    }
+	    
+	    public int getMobilityFlag()
+	    {
+	        return 0;
+	    }
+	    
+	    public boolean canMakeSlopes(World world, int x, int y, int z)
+	    {
+	        return false;
+	    }
+	    
+	    public float getRailMaxSpeed(World world, EntityMinecart cart, int y, int x, int z)
+	    {
+	        return 0.4f;
+	    }
+	    
+	    public void onMinecartPass(World world, EntityMinecart cart, int y, int x, int z)
+	    {
+	    }    
+	    
+	    private int renderType = 9;
+	    
+	    public void setRenderType(int value)
+	    {
+	        renderType = value;
+	    }
+	    
+	    protected void refreshTrackShape(World par1World, int par2, int par3, int par4, boolean par5)
+	    {
+	    }
 
 
 
