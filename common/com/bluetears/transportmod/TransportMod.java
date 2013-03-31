@@ -137,7 +137,7 @@ public class TransportMod {
         }
 		
 		public static void addBlocks(){
-        	curvedRail = new CurvedRail(startBlockId).setUnlocalizedName("curvedRail").setHardness(0.5F).setCreativeTab(CreativeTabs.tabTransport);
+        	curvedRail = new CurvedRail(startBlockId).setUnlocalizedName("curvedRail").setHardness(0.5F).setCreativeTab(TransportMod.trainstab);
         	oreAsphalt = new AsphaltOre(startBlockId+1, Material.iron);
             oreGuiltalium = new GuiltaliumOre(startBlockId+2, Material.iron);
             oreTin = new TinOre(startBlockId+3, Material.iron);

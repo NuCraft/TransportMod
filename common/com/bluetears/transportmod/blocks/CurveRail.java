@@ -22,7 +22,6 @@ public CurveRail(int par1, @SuppressWarnings("rawtypes") Class class1)
 {
 
 super(par1, Material.ground);
-setCreativeTab(CreativeTabs.tabTransport);
 setUnlocalizedName("curveRail");
 setHardness(0.5F);
 setStepSound(Block.soundStoneFootstep);
@@ -120,11 +119,18 @@ public void onBlockAdded(World par1World, int par2, int par3, int par4)
 	int x = par2-1;
 	while(x < (par2+2))
 		{
-			par1World.setBlockToAir(x, par3, par4+1);
-			par1World.setBlockToAir(x, par3, par4-1);
-			if(x !=par2){
-			par1World.setBlockToAir(x, par3, par4);
-		}
+			if(par1World.getBlockId(x, par3, par4 +1) == TransportMod.curvedRail.blockID)
+			{
+				par1World.setBlockToAir(x, par3, par4+1);
+			}
+			if(par1World.getBlockId(x, par3, par4-1) == TransportMod.curvedRail.blockID)
+			{
+				par1World.setBlockToAir(x, par3, par4-1);
+			}
+			if(x !=par2 && par1World.getBlockId(x, par3, par4) == TransportMod.curvedRail.blockID)
+			{
+				par1World.setBlockToAir(x, par3, par4);
+			}
 			x++;
 		}
 }
