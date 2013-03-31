@@ -23,6 +23,7 @@ import com.bluetears.transportmod.items.TinIngot;
 import com.bluetears.transportmod.items.boatparts.Anchor;
 import com.bluetears.transportmod.items.boatparts.IronBoat;
 import com.bluetears.transportmod.items.boatparts.IronBoatHull;
+import com.bluetears.transportmod.items.boatparts.SimpleDriveShaft;
 import com.bluetears.transportmod.items.boatparts.SimplePropeller;
 import com.bluetears.transportmod.items.roads.Asphalt;
 import com.bluetears.transportmod.items.roads.CondensedAsphalt;
@@ -163,6 +164,7 @@ public class TransportMod {
             hotAsphalt = new HotAsphalt(startItemId+11);
             condensedAsphalt = new CondensedAsphalt(startItemId+12);
             guiltalium = new Guiltalium(startItemId+13);
+            simpleDriveShaft = new SimpleDriveShaft(startItemId+14);
         }
 		
 		public static void registerBlocks(){
@@ -204,6 +206,7 @@ public class TransportMod {
         	LanguageRegistry.addName(asphaltRoad, "Asphalt Road");
         	LanguageRegistry.addName(monorailBeam, "Monorail Beam");
         	LanguageRegistry.addName(guiltalium,"Guiltalium");
+        	LanguageRegistry.addName(simpleDriveShaft, "Simple Drive Shaft");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.monorailstab", "en_US", "Monorails");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.transportmodtab", "en_US", "Transport Mod");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.boatstab", "en_US", "Boats");
