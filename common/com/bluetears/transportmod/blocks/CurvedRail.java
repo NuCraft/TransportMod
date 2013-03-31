@@ -4,6 +4,7 @@ import com.bluetears.transportmod.TransportMod;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockRail;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,6 +17,7 @@ public class CurvedRail extends BlockRail {
 	
         public CurvedRail (int par1) {
         	super(par1);
+        	setStepSound(Block.soundStoneFootstep);
                 
         }
    

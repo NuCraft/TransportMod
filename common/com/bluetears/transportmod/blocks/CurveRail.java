@@ -1,5 +1,7 @@
 package com.bluetears.transportmod.blocks;
 
+import java.util.Random;
+
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -10,19 +12,18 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
+import com.bluetears.transportmod.TransportMod;
 import com.bluetears.transportmod.curvedRail.CurveRailTileEntity;
 
 public class CurveRail extends BlockContainer {
 
-public int rot = 0;
-	
 public CurveRail(int par1, @SuppressWarnings("rawtypes") Class class1)
 {
 
 super(par1, Material.iron);
 setCreativeTab(CreativeTabs.tabTransport);
 setUnlocalizedName("curveRail");
-
+setHardness(0.4F);
 }
 
 @Override
@@ -82,7 +83,7 @@ return true;
 }
 
 public TileEntity getBlockEntity() {
-return new CurveRailTileEntity(rot);
+return new CurveRailTileEntity();
 
 }
 
@@ -90,7 +91,7 @@ return new CurveRailTileEntity(rot);
 
 @Override
 public TileEntity createNewTileEntity(World world) {
-	return new CurveRailTileEntity(rot);
+	return new CurveRailTileEntity();
 	
 }
 
@@ -110,4 +111,18 @@ public void onBlockAdded(World par1World, int par2, int par3, int par4)
 			x++;
 		}
 }
+
+public int idDropped(int par1, Random random, int par2) {
+    return TransportMod.curvedRail.blockID;
+}
+
+@Override
+public int quantityDropped(Random par1Random)
+{
+    return 5;
+}
+
+
+
+
 }
