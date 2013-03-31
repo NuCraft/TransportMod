@@ -21,12 +21,12 @@ public class CurveRail extends BlockContainer {
 public CurveRail(int par1, @SuppressWarnings("rawtypes") Class class1)
 {
 
-super(par1, Material.iron);
+super(par1, Material.ground);
 setCreativeTab(CreativeTabs.tabTransport);
 setUnlocalizedName("curveRail");
 setHardness(0.5F);
 setStepSound(Block.soundStoneFootstep);
-setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
+setBlockBounds(-1F, 0, -1F, 2F, 0.0625F, 2F);
 }
 
 @Override
@@ -41,13 +41,6 @@ public int quantityDropped(Random par1Random)
     return 5;
    
 }
-
-@Override
-public void onBlockHarvested(World par1World, int par2, int par3, int par4, int par5, EntityPlayer par6EntityPlayer)
-{
-	super.onBlockHarvested(par1World, par2, par3, par4, par5, par6EntityPlayer);
-}
-
 
 @Override
 public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int x, int y, int z)

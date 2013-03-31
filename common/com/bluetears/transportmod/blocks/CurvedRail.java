@@ -18,6 +18,8 @@ public class CurvedRail extends BlockRail {
         public CurvedRail (int par1) {
         	super(par1);
         	setStepSound(Block.soundStoneFootstep);
+        	System.out.println(" Check rail mat" + super.blockMaterial);
+        	System.out.println(" Check curv mat" + this.blockMaterial);
                 
         }
 

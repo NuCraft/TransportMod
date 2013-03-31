@@ -137,7 +137,7 @@ public class TransportMod {
         }
 		
 		public static void addBlocks(){
-        	curvedRail = new CurvedRail(startBlockId).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("curvedRail").setHardness(0.5F).setCreativeTab(CreativeTabs.tabTransport);
+        	curvedRail = new CurvedRail(startBlockId).setUnlocalizedName("curvedRail").setHardness(0.5F).setCreativeTab(CreativeTabs.tabTransport);
         	oreAsphalt = new AsphaltOre(startBlockId+1, Material.iron);
             oreGuiltalium = new GuiltaliumOre(startBlockId+2, Material.iron);
             oreTin = new TinOre(startBlockId+3, Material.iron);
@@ -254,6 +254,8 @@ public class TransportMod {
         	MinecraftForge.setBlockHarvestLevel(oreGuiltalium, "pickaxe", 3);
         	MinecraftForge.setBlockHarvestLevel(oreCopper, "pickaxe", 1);
         	MinecraftForge.setBlockHarvestLevel(oreTin, "pickaxe", 2);
+        	MinecraftForge.setBlockHarvestLevel(curveRail, null, 0);
+        	
         }
         
         public static void addWorldGens(){
