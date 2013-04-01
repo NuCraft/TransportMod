@@ -18,8 +18,6 @@ public class CurvedRail extends BlockRail {
         public CurvedRail (int par1) {
         	super(par1);
         	setStepSound(Block.soundStoneFootstep);
-        	System.out.println(" Check rail mat" + super.blockMaterial);
-        	System.out.println(" Check curv mat" + this.blockMaterial);
                 
         }
 
@@ -51,8 +49,40 @@ public class CurvedRail extends BlockRail {
     		{
     			if(curve >299)
     			{
-    	
-    			par1World.setBlock(par2, par3, par4, TransportMod.curveRail.blockID, curve-300, 0);
+    				par1World.setBlock(par2, par3, par4, TransportMod.phantomRail.blockID);
+    				if(curve == 300)
+    				{
+    			par1World.setBlock(par2+1, par3, par4+1, TransportMod.curveRail.blockID, curve-300, 0);
+    			par1World.setBlock(par2+1, par3, par4-1, TransportMod.phantomRail.blockID);
+    			par1World.setBlock(par2-1, par3, par4+1, TransportMod.phantomRail.blockID);
+    			par1World.setBlock(par2, par3, par4-1, TransportMod.phantomRail.blockID);
+    			par1World.setBlock(par2-1, par3, par4, TransportMod.phantomRail.blockID);
+    			
+    				}
+    				if(curve == 301)
+    				{
+    			par1World.setBlock(par2+1, par3, par4-1, TransportMod.curveRail.blockID, curve-300, 0);
+    			par1World.setBlock(par2+1, par3, par4+1, TransportMod.phantomRail.blockID);
+    			par1World.setBlock(par2-1, par3, par4-1, TransportMod.phantomRail.blockID);
+    			par1World.setBlock(par2-1, par3, par4, TransportMod.phantomRail.blockID);
+    			par1World.setBlock(par2, par3, par4+1, TransportMod.phantomRail.blockID);
+    				}
+    				if(curve == 302)
+    				{
+    			par1World.setBlock(par2-1, par3, par4-1, TransportMod.curveRail.blockID, curve-300, 0);
+    			par1World.setBlock(par2+1, par3, par4-1, TransportMod.phantomRail.blockID);
+    			par1World.setBlock(par2-1, par3, par4+1, TransportMod.phantomRail.blockID);
+    			par1World.setBlock(par2+1, par3, par4, TransportMod.phantomRail.blockID);
+    			par1World.setBlock(par2, par3, par4+1, TransportMod.phantomRail.blockID);
+    				}
+    				if(curve == 303)
+    				{
+    			par1World.setBlock(par2-1, par3, par4+1, TransportMod.curveRail.blockID, curve-300, 0);
+    			par1World.setBlock(par2+1, par3, par4+1, TransportMod.phantomRail.blockID);
+    			par1World.setBlock(par2-1, par3, par4-1, TransportMod.phantomRail.blockID);
+    			par1World.setBlock(par2+1, par3, par4, TransportMod.phantomRail.blockID);
+    			par1World.setBlock(par2, par3, par4-1, TransportMod.phantomRail.blockID);
+    				}
     			
     			}	
     			else if(curve >199 && curve <299)
@@ -123,7 +153,6 @@ public class CurvedRail extends BlockRail {
       		
       		return 0;
       	}
-      	
     	
     }    
         

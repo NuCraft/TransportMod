@@ -30,7 +30,20 @@ i =(tile.worldObj.getBlockMetadata(tile.xCoord, tile.yCoord, tile.zCoord)); // t
 bindTextureByName("/mods/transportmod/textures/curved rail/attempt2.png");
 //for the int i = 0 which i mentioned above. the 0 will take over the texture from case 0, and have that texture render in your inventory. I unfortunately do not know yet how to make your block have more then one texture in your inventory. the blocks rendered in the world will have the allocated texture, the ones in the inventory wont. this will be updated as soon as I or anyone else founds the solution
 GL11.glPushMatrix(); //start
-GL11.glTranslatef((float)d + 0.5F, (float)d1 + 1.5F, (float)d2 + 0.5F); //size
+if (tile.worldObj.getBlockMetadata(tile.xCoord, tile.yCoord, tile.zCoord) == 0)
+GL11.glTranslatef((float)d - 0.5F, (float)d1 + 1.5F, (float)d2 - 0.5F); //size
+
+else if (tile.worldObj.getBlockMetadata(tile.xCoord, tile.yCoord, tile.zCoord) == 1)
+GL11.glTranslatef((float)d - 0.5F, (float)d1 + 1.5F, (float)d2 + 1.5F); //size
+
+else if (tile.worldObj.getBlockMetadata(tile.xCoord, tile.yCoord, tile.zCoord) == 2)
+GL11.glTranslatef((float)d + 1.5F, (float)d1 + 1.5F, (float)d2 + 1.5F); //size
+
+else if(tile.worldObj.getBlockMetadata(tile.xCoord, tile.yCoord, tile.zCoord) == 3)
+GL11.glTranslatef((float)d + 1.5F, (float)d1 + 1.5F, (float)d2 - 0.5F); //size
+
+else{GL11.glTranslatef((float)d + 0.5F, (float)d1 + 1.5F, (float)d2 + 0.5F);} //size
+
 GL11.glRotatef(tile.worldObj.getBlockMetadata(tile.xCoord, tile.yCoord, tile.zCoord)*90, 0.0F, 1.0F, 0.0F); //change the first 0 in like 90 to make it rotate 90 degrees.
 GL11.glScalef(1.0F, -1F, -1F); // to make your block have a normal positioning. comment out to see what happens
 model.renderModel(0.0625F); //renders and 0.0625F is exactly 1/16. every block has 16 entitys/pixels. if you make the number 1, every pixel will be as big as a block. make it 0.03125 and your block will be half as big as a normal one.

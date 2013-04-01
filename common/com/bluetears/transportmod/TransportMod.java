@@ -12,6 +12,7 @@ import com.bluetears.transportmod.blocks.TinOre;
 import com.bluetears.transportmod.blocks.monorails.MonorailBeam;
 import com.bluetears.transportmod.blocks.roads.AsphaltRoad;
 import com.bluetears.transportmod.curvedRail.CurveRailTileEntity;
+import com.bluetears.transportmod.curvedRail.PhantomRail;
 import com.bluetears.transportmod.curvedRail.RenderCurveRail;
 import com.bluetears.transportmod.items.AdvancedCircuit;
 import com.bluetears.transportmod.items.ConcreteSlurry;
@@ -146,6 +147,7 @@ public class TransportMod {
             concrete = new Concrete(startBlockId+6,Material.iron);
             asphaltRoad = new AsphaltRoad(startBlockId+7,Material.iron);
             monorailBeam = new MonorailBeam(startBlockId+8);
+            phantomRail = new PhantomRail(startBlockId+9).setUnlocalizedName("phantomRail").setHardness(50F);
         	
         }
         
@@ -177,6 +179,7 @@ public class TransportMod {
 			GameRegistry.registerBlock(concrete,"concrete");
 			GameRegistry.registerBlock(asphaltRoad,"asphaltRoad");
 			GameRegistry.registerBlock(monorailBeam,"monorailBeam");
+			GameRegistry.registerBlock(phantomRail, "phantomRail");
 		}
         
         
@@ -207,6 +210,7 @@ public class TransportMod {
         	LanguageRegistry.addName(monorailBeam, "Monorail Beam");
         	LanguageRegistry.addName(guiltalium,"Guiltalium");
         	LanguageRegistry.addName(simpleDriveShaft, "Simple Drive Shaft");
+        	LanguageRegistry.addName(phantomRail, "...");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.monorailstab", "en_US", "Monorails");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.transportmodtab", "en_US", "Transport Mod");
         	LanguageRegistry.instance().addStringLocalization("itemGroup.boatstab", "en_US", "Boats");
@@ -255,7 +259,7 @@ public class TransportMod {
         	MinecraftForge.setBlockHarvestLevel(oreGuiltalium, "pickaxe", 3);
         	MinecraftForge.setBlockHarvestLevel(oreCopper, "pickaxe", 1);
         	MinecraftForge.setBlockHarvestLevel(oreTin, "pickaxe", 2);
-        	MinecraftForge.setBlockHarvestLevel(curveRail, null, 0);
+        	MinecraftForge.setBlockHarvestLevel(phantomRail, "pickaxe", 4);
         	
         }
         
@@ -284,6 +288,7 @@ public class TransportMod {
         public static Block concrete;
         public static Block asphaltRoad;
         public static Block monorailBeam;
+        public static Block phantomRail;
         
         //Variables for the items used in the mod
         public static Item advancedCircuit;

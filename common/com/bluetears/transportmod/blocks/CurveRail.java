@@ -3,19 +3,13 @@ package com.bluetears.transportmod.blocks;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockBaseRailLogic;
 import net.minecraft.block.BlockContainer;
-import net.minecraft.block.BlockRail;
-import net.minecraft.block.BlockRailBase;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import com.bluetears.transportmod.TransportMod;
@@ -30,7 +24,6 @@ super(par1, Material.ground);
 setUnlocalizedName("curveRail");
 setHardness(0.5F);
 setStepSound(Block.soundStoneFootstep);
-setBlockBounds(-1F, 0, -1F, 2F, 0.0625F, 2F);
 }
 
 @Override
@@ -46,10 +39,37 @@ public int quantityDropped(Random par1Random)
    
 }
 
+
 @Override
 public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int x, int y, int z)
 {
-	return AxisAlignedBB.getBoundingBox((double)x-1F, (double)y, (double)z -1F, (double)x + 2F, (double)y+0.0625, (double)z + 2F);
+	AxisAlignedBB bounds; 
+	if (par1World.getBlockMetadata(x, y, z) == 0)
+	{
+	bounds = AxisAlignedBB.getBoundingBox((double)x-2F, (double)y, (double)z-2F, (double)x + 1F, (double)y+0.0625, (double)z + 1F);
+	this.setBlockBounds(-2F, 0F, -2F, 1F, 0.0625F, 1F);
+	}
+	else if (par1World.getBlockMetadata(x, y, z) == 1)
+	{
+	bounds = AxisAlignedBB.getBoundingBox((double)x-2F, (double)y, (double)z, (double)x + 1F, (double)y+0.0625, (double)z + 3F);
+	this.setBlockBounds(-2F, 0F, 0F, 1F, 0.0625F, 3F);
+	}
+	else if (par1World.getBlockMetadata(x, y, z) == 2)
+	{
+	bounds = AxisAlignedBB.getBoundingBox((double)x, (double)y, (double)z, (double)x + 3F, (double)y+0.0625, (double)z + 3F);
+	this.setBlockBounds(0F, 0F, 0F, 3F, 0.0625F, 3F);
+	}
+	else if (par1World.getBlockMetadata(x, y, z) == 3)
+	{
+	bounds = AxisAlignedBB.getBoundingBox((double)x, (double)y, (double)z-2F, (double)x + 3F, (double)y+0.0625, (double)z + 1F);
+	this.setBlockBounds(0F, 0F, -2F, 3F, 0.0625F, 1F);
+	}
+	else{ bounds = AxisAlignedBB.getBoundingBox((double)x, (double)y, (double)z, (double)x + 1F, (double)y+0.0625, (double)z + 1F);
+	this.setBlockBounds(0F, 0F, 0F, 1F, 0.0625F, 1F);
+	}
+		
+	
+	return bounds;
 } 
 
 @Override
@@ -57,6 +77,7 @@ public AxisAlignedBB getSelectedBoundingBoxFromPool(World par1World, int x, int 
 {
     return this.getCollisionBoundingBoxFromPool(par1World, x, y, z);
 }
+
 
 public void registerIcons(IconRegister par1IconRegister)
 {
@@ -121,97 +142,100 @@ public void onBlockAdded(World par1World, int par2, int par3, int par4)
 {
 	super.onBlockAdded(par1World, par2, par3, par4);
 	
-	int x = par2-1;
-	while(x < (par2+2))
+	int x = par2;
+	int z = par4;
+	
+	par1World.getBlockMetadata(par2, par3, par4);
+	if(par1World.getBlockMetadata(par2, par3, par4) == 0)
+	{
+		x= par2-2;
+		z= par4-2;
+	}
+	else if(par1World.getBlockMetadata(par2, par3, par4) == 1)
+	{
+		x= par2-2;
+		z=par4;
+	}
+	else if(par1World.getBlockMetadata(par2, par3, par4) == 2)
+	{
+		x= par2;
+		z=par4;
+	}
+	else if(par1World.getBlockMetadata(par2, par3, par4) == 3)
+	{
+		x= par2;
+		z= par4-2;
+	}
+	int i = x;
+	while(x < (i+3))
 		{
-			if(par1World.getBlockId(x, par3, par4 +1) == TransportMod.curvedRail.blockID)
+			if(par1World.getBlockId(x, par3, z) == TransportMod.curvedRail.blockID)
 			{
-				par1World.setBlockToAir(x, par3, par4+1);
+				par1World.setBlockToAir(x, par3, z);
 			}
-			if(par1World.getBlockId(x, par3, par4-1) == TransportMod.curvedRail.blockID)
+			if(par1World.getBlockId(x, par3, z+1) == TransportMod.curvedRail.blockID)
 			{
-				par1World.setBlockToAir(x, par3, par4-1);
+				par1World.setBlockToAir(x, par3, z+1);
 			}
-			if(x !=par2 && par1World.getBlockId(x, par3, par4) == TransportMod.curvedRail.blockID)
+			if(par1World.getBlockId(x, par3, z+2) == TransportMod.curvedRail.blockID)
 			{
-				par1World.setBlockToAir(x, par3, par4);
+				par1World.setBlockToAir(x, par3, z+2);
 			}
 			x++;
 		}
 	
 }
+	    
+@Override
+public void onBlockDestroyedByPlayer( World par1World,int par2,int par3,int par4,int par5)
+{
+	super.onBlockDestroyedByPlayer(par1World, par2, par3, par4, par5);
 	
-///ATTEMPT TO MAKE IT A RAIL #1
-	
-    public static final boolean isRailBlockAt(World par0World, int par1, int par2, int par3)
-    {
-        return isRailBlock(par0World.getBlockId(par1, par2, par3));
-    }
+	int x = par2;
+	int z = par4;
 
-    /**
-     * Return true if the parameter is a blockID for a valid rail block (current is rail, powered or detector).
-     */
-    public static final boolean isRailBlock(int par0)
-    {
-        return par0 == TransportMod.curveRail.blockID;
-    }
-	
-	   public int getBasicRailMetadata(IBlockAccess world, EntityMinecart cart, int x, int y, int z)
-	    {
-	        int meta = world.getBlockMetadata(x, y, z);
-	        return meta;
-	    }
-	   
-	   public boolean isPowered()
-	    {
-	        return false;
-	    }
-	   
-	    public boolean canPlaceBlockAt(World par1World, int par2, int par3, int par4)
-	    {
-	        return par1World.doesBlockHaveSolidTopSurface(par2, par3 - 1, par4);
-	    }
-	    
-	    
-	    protected void func_94358_a(World par1World, int par2, int par3, int par4, int par5, int par6, int par7)
-	    {
-	        if (par7 > 0 && Block.blocksList[par7].canProvidePower() && (new BlockBaseRailLogic(new CurvedRail(par2), par1World, par2, par3, par4)).func_94505_a() == 3)
-	        {
-	            this.refreshTrackShape(par1World, par2, par3, par4, false);
-	        }
-	    }
-	    
-	    public int getMobilityFlag()
-	    {
-	        return 0;
-	    }
-	    
-	    public boolean canMakeSlopes(World world, int x, int y, int z)
-	    {
-	        return false;
-	    }
-	    
-	    public float getRailMaxSpeed(World world, EntityMinecart cart, int y, int x, int z)
-	    {
-	        return 0.4f;
-	    }
-	    
-	    public void onMinecartPass(World world, EntityMinecart cart, int y, int x, int z)
-	    {
-	    }    
-	    
-	    private int renderType = 9;
-	    
-	    public void setRenderType(int value)
-	    {
-	        renderType = value;
-	    }
-	    
-	    protected void refreshTrackShape(World par1World, int par2, int par3, int par4, boolean par5)
-	    {
-	    }
-
-
+	if(par1World.getBlockId(par2-2, par3, par4) ==TransportMod.phantomRail.blockID
+		&& par1World.getBlockId(par2, par3, par4-2) ==TransportMod.phantomRail.blockID)
+	{
+		x= par2-2;
+		z= par4-2;
+	}
+	else if(par1World.getBlockId(par2-2, par3, par4) ==TransportMod.phantomRail.blockID
+			&& par1World.getBlockId(par2, par3, par4+2) ==TransportMod.phantomRail.blockID)
+	{
+		x= par2-2;
+		z=par4;
+	}
+	else if(par1World.getBlockId(par2+2, par3, par4) ==TransportMod.phantomRail.blockID
+			&& par1World.getBlockId(par2, par3, par4+2) ==TransportMod.phantomRail.blockID)
+	{
+		x= par2;
+		z=par4;
+	}
+	else if(par1World.getBlockId(par2+2, par3, par4) ==TransportMod.phantomRail.blockID
+			&& par1World.getBlockId(par2, par3, par4-2) ==TransportMod.phantomRail.blockID)
+	{
+		x= par2;
+		z= par4-2;
+	}
+	int i = x;
+	while(x < (i+3))
+		{
+			if(par1World.getBlockId(x, par3, z) == TransportMod.phantomRail.blockID)
+			{
+				par1World.setBlockToAir(x, par3, z);
+			}
+			if(par1World.getBlockId(x, par3, z+1) == TransportMod.phantomRail.blockID)
+			{
+				par1World.setBlockToAir(x, par3, z+1);
+			}
+			if(par1World.getBlockId(x, par3, z+2) == TransportMod.phantomRail.blockID)
+			{
+				par1World.setBlockToAir(x, par3, z+2);
+			}
+			x++;
+		}
+}
 
 
 }
