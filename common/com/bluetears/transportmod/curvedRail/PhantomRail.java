@@ -2,8 +2,6 @@ package com.bluetears.transportmod.curvedRail;
 
 import java.util.Random;
 
-import com.bluetears.transportmod.TransportMod;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -18,6 +16,7 @@ public class PhantomRail extends BlockRail{
 	public PhantomRail(int par1) {
 		super(par1);
 		setStepSound(Block.soundStoneFootstep);
+		setCreativeTab(null);
 	}
 	public void registerIcons(IconRegister par1IconRegister)
     {
