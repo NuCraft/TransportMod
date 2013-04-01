@@ -40,4 +40,11 @@ public class PhantomRail extends BlockRail{
 	    return 0;
 	    
 	}
+	
+	@Override
+	public int getMobilityFlag()
+	{
+		return 2;
+		
+	}
 }

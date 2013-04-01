@@ -6,8 +6,10 @@ import com.bluetears.transportmod.TransportMod;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemBoat;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
@@ -17,15 +19,15 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
-public class IronBoat extends ItemBoat{
+public class IronBoat extends Item{
 
-	public IronBoat(int par1) {
-		super(par1);
+	public IronBoat(int par1)
+    {
+        super(par1);
         this.maxStackSize = 1;
         this.setCreativeTab(TransportMod.boatstab);
         setUnlocalizedName("ironBoat");
-        
-	}
+    }
 	
 	public void updateIcons(IconRegister iconRegister)
 	{
@@ -98,17 +100,17 @@ public class IronBoat extends ItemBoat{
 	                        --j;
 	                    }
 
-	                    EntityIronBoat entityironboat = new EntityIronBoat(par2World, (double)((float)i + 0.5F), (double)((float)j + 1.0F), (double)((float)k + 0.5F));
-	                    entityironboat.rotationYaw = (float)(((MathHelper.floor_double((double)(par3EntityPlayer.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3) - 1) * 90);
+	                    EntityIronBoat entityboat = new EntityIronBoat(par2World, (double)((float)i + 0.5F), (double)((float)j + 1.0F), (double)((float)k + 0.5F));
+	                    entityboat.rotationYaw = (float)(((MathHelper.floor_double((double)(par3EntityPlayer.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3) - 1) * 90);
 
-	                    if (!par2World.getCollidingBoundingBoxes(entityironboat, entityironboat.boundingBox.expand(-0.1D, -0.1D, -0.1D)).isEmpty())
+	                    if (!par2World.getCollidingBoundingBoxes(entityboat, entityboat.boundingBox.expand(-0.1D, -0.1D, -0.1D)).isEmpty())
 	                    {
 	                        return par1ItemStack;
 	                    }
 
 	                    if (!par2World.isRemote)
 	                    {
-	                        par2World.spawnEntityInWorld(entityironboat);
+	                        par2World.spawnEntityInWorld(entityboat);
 	                    }
 
 	                    if (!par3EntityPlayer.capabilities.isCreativeMode)
@@ -120,7 +122,8 @@ public class IronBoat extends ItemBoat{
 	                return par1ItemStack;
 	            }
 	        }
-	    }
+	    
+		 }
 	}
 
 
